@@ -1,0 +1,10 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "tcc"
+ver = "0.9.26"
+
+[deps]
+build=[
+"wine",
+

@@ -1,0 +1,37 @@
+INSTALL=install
+BINDIR=$(prefix)/bin#			where to install executables
+MANDIR=$(prefix)/man/man$(manext)#	where to install man pages
+INSTALL_D=install -d -m 755
+INSTALL_PROGRAM=install -m 755
+LN=cp -p
+MANS=man/funzip.1 man/unzip.1 man/unzipsfx.1 man/zipgrep.1 man/zipinfo.1
+E=.exe
+UNZIPS=unzip$E funzip$E unzipsfx$E
+CHMOD=chmod
+BINPERMS=755
+MANPERMS=644
+manext=1
+INSTALLEDBIN=$(BINDIR)/funzip$E $(BINDIR)/unzip$E $(BINDIR)/unzipsfx$E \
+	$(BINDIR)/zipgrep $(BINDIR)/zipinfo$E
+INSTALLEDMAN=$(MANDIR)/funzip.$(manext) $(MANDIR)/unzip.$(manext) \
+	$(MANDIR)/unzipsfx.$(manext) $(MANDIR)/zipgrep.$(manext) \
+	$(MANDIR)/zipinfo.$(manext)
+
+install:	$(MANS)
+	-$(INSTALL_D) $(BINDIR)
+	$(INSTALL_PROGRAM) $(UNZIPS) $(BINDIR)
+	$(INSTALL) unix/zipgrep $(BINDIR)
+	$(RM) $(BINDIR)/zipinfo$E
+	$(LN) $(BINDIR)/unzip$E $(BINDIR)/zipinfo$E
+	-$(INSTALL_D) $(MANDIR)
+	$(INSTALL) man/funzip.1 $(MANDIR)/funzip.$(manext)
+	$(INSTALL) man/unzip.1 $(MANDIR)/unzip.$(manext)
+	$(INSTALL) man/unzipsfx.1 $(MANDIR)/unzipsfx.$(manext)
+	$(INSTALL) man/zipgrep.1 $(MANDIR)/zipgrep.$(manext)
+	$(INSTALL) man/zipinfo.1 $(MANDIR)/zipinfo.$(manext)
+	$(CHMOD) $(BINPERMS) $(INSTALLEDBIN)
+	$(CHMOD) $(MANPERMS) $(INSTALLEDMAN)
+
+uninstall:
+	$(RM) $(INSTALLEDBIN) $(INSTALLEDMAN)
+

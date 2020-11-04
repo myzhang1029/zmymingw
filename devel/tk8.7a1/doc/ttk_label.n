@@ -1,0 +1,46 @@
+'\"
+'\" Copyright (c) 2004 Joe English
+'\"
+'\" See the file "license.terms" for information on usage and redistribution
+'\" of this file, and for a DISCLAIMER OF ALL WARRANTIES.
+'\"
+.TH ttk::label n 8.5 Tk "Tk Themed Widget"
+.so man.macros
+.BS
+.SH NAME
+ttk::label \- Display a text string and/or image
+.SH SYNOPSIS
+\fBttk::label\fR \fIpathName \fR?\fIoptions\fR?
+.BE
+.SH DESCRIPTION
+.PP
+A \fBttk::label\fR widget displays a textual label and/or image.
+The label may be linked to a Tcl variable
+to automatically change the displayed text.
+.SO ttk_widget
+\-anchor	\-class	\-compound	\-cursor
+\-font	\-foreground
+\-image	\-justify	\-padding	\-style	\-takefocus
+\-text	\-textvariable	\-underline
+\-width	\-wraplength
+.SE
+.SH "WIDGET-SPECIFIC OPTIONS"
+.OP \-background frameColor FrameColor
+The widget's background color.
+If unspecified, the theme default is used.
+.OP \-relief relief Relief
+.\" Rewrite this:
+Specifies the 3-D effect desired for the widget border.
+Valid values are
+\fBflat\fR, \fBgroove\fR, \fBraised\fR, \fBridge\fR, \fBsolid\fR,
+and \fBsunken\fR.
+.SH "WIDGET COMMAND"
+.PP
+Supports the standard widget commands
+\fBconfigure\fR, \fBcget\fR, \fBidentify\fR, \fBinstate\fR, and \fBstate\fR;
+see \fIttk::widget(n)\fR.
+.SH "SEE ALSO"
+ttk::widget(n), label(n)
+'\" Local Variables:
+'\" mode: nroff
+'\" End:

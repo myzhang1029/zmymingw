@@ -1,0 +1,12 @@
+[package]
+name = "aria2"
+ver = "git"
+
+[deps]
+req = [
+"libssh2",
+"libcares",
+"gmp",
+"expat",
+"sqlite"
+]

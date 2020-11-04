@@ -1,0 +1,19 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "gnupg"
+ver = "2.2.7"
+
+[deps] # Dependencies
+req = [
+"libintl",
+"libiconv",
+"libgpg-error",
+"pinentry",
+"libksba",
+"libgcrypt",
+"libassuan",
+"readline",
+"ntbtls",
+"npth",
+]

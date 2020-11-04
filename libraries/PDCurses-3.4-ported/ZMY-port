@@ -1,0 +1,2 @@
+Move win32/gccwin32.mak to win32/gccwin32.make.old
+Create win32/gccwin32.mak

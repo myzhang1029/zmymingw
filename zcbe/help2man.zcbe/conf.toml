@@ -1,0 +1,10 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "help2man"
+ver = "1.47.14"
+
+[deps] # Dependencies
+build = [
+"perl",
+]

@@ -1,0 +1,11 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "less"
+ver = "530"
+
+[deps]
+req = [
+"pdcurses",
+"pcre"
+]

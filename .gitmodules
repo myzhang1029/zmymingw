@@ -1,0 +1,117 @@
+[submodule "archival/zstd"]
+	path = archival/zstd
+	url = git://github.com/facebook/zstd.git
+[submodule "user/ImageMagick"]
+	path = user/ImageMagick
+	url = git://github.com/ImageMagick/ImageMagick.git
+[submodule "user/curl"]
+	path = user/curl
+	url = git://github.com/curl/curl.git
+[submodule "devel/cmake"]
+	path = devel/cmake
+	url = https://gitlab.kitware.com/cmake/cmake.git
+[submodule "archival/xz"]
+	path = archival/xz
+	url = https://git.tukaani.org/xz.git
+[submodule "archival/gzip"]
+	path = archival/gzip
+	url = https://git.savannah.gnu.org/git/gzip.git
+[submodule "libraries/gnulib"]
+	path = libraries/gnulib
+	url = https://git.savannah.gnu.org/git/gnulib.git
+[submodule "libraries/x264"]
+	path = libraries/x264
+	url = https://code.videolan.org/videolan/x264.git
+[submodule "user/ffmpeg"]
+	path = user/ffmpeg
+	url = git://git.ffmpeg.org/ffmpeg.git
+[submodule "libraries/libexpat"]
+	path = libraries/libexpat
+	url = git://github.com/libexpat/libexpat
+[submodule "libraries/c-ares"]
+	path = libraries/c-ares
+	url = git://github.com/c-ares/c-ares
+[submodule "user/aria2"]
+	path = user/aria2
+	url = git://github.com/aria2/aria2
+[submodule "libraries/wxWidgets"]
+	path = libraries/wxWidgets
+	url = git://github.com/wxWidgets/wxWidgets.git
+[submodule "libraries/libssh2"]
+	path = libraries/libssh2
+	url = git://github.com/libssh2/libssh2
+[submodule "libraries/libffi"]
+	path = libraries/libffi
+	url = git://github.com/libffi/libffi
+[submodule "libraries/openjpeg"]
+	path = libraries/openjpeg
+	url = git://github.com/uclouvain/openjpeg
+[submodule "libraries/flac"]
+	path = libraries/flac
+	url = git://github.com/xiph/flac.git
+[submodule "libraries/libuv"]
+	path = libraries/libuv
+	url = git://github.com/libuv/libuv
+[submodule "libraries/libwebp"]
+	path = libraries/libwebp
+	url = git://github.com/webmproject/libwebp
+[submodule "libraries/pixman"]
+	path = libraries/pixman
+	url = https://anongit.freedesktop.org/git/pixman.git
+[submodule "libraries/ogg"]
+	path = libraries/ogg
+	url = git://github.com/xiph/ogg.git
+[submodule "libraries/libtiff"]
+	path = libraries/libtiff
+	url = https://gitlab.com/libtiff/libtiff
+[submodule "libraries/lcms2"]
+	path = libraries/lcms2
+	url = git://github.com/mm2/Little-CMS
+[submodule "libraries/cairo"]
+	path = libraries/cairo
+	url = https://gitlab.freedesktop.org/cairo/cairo.git
+[submodule "libraries/libpng"]
+	path = libraries/libpng
+	url = git://github.com/glennrp/libpng
+[submodule "libraries/zlib"]
+	path = libraries/zlib
+	url = git://github.com/madler/zlib
+[submodule "libraries/bdwgc"]
+	path = libraries/bdwgc
+	url = git://github.com/ivmai/bdwgc.git
+[submodule "libraries/libatomic_ops"]
+	path = libraries/libatomic_ops
+	url = git://github.com/ivmai/libatomic_ops.git
+[submodule "libraries/msgpack"]
+	path = libraries/msgpack
+	url = git://github.com/msgpack/msgpack-c
+[submodule "libraries/x265"]
+	path = libraries/x265
+	url = git://github.com/videolan/x265
+[submodule "libraries/vorbis"]
+	path = libraries/vorbis
+	url = git://github.com/xiph/vorbis.git
+[submodule "libraries/opusfile"]
+	path = libraries/opusfile
+	url = git://github.com/xiph/opusfile.git
+[submodule "libraries/opus"]
+	path = libraries/opus
+	url = git://github.com/xiph/opus.git
+[submodule "libraries/libsndfile"]
+	path = libraries/libsndfile
+	url = git://github.com/erikd/libsndfile.git
+[submodule "user/vim"]
+	path = user/vim
+	url = git://github.com/vim/vim
+[submodule "libraries/libxml2"]
+	path = libraries/libxml2
+	url = https://gitlab.gnome.org/GNOME/libxml2.git/
+[submodule "libraries/libheif"]
+	path = libraries/libheif
+	url = git://github.com/strukturag/libheif.git
+[submodule "devel/make"]
+	path = devel/make
+    url = https://git.savannah.gnu.org/git/make.git
+[submodule "devel/autoconf"]
+	path = devel/autoconf
+	url = https://git.savannah.gnu.org/git/autoconf.git

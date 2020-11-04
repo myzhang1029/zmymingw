@@ -1,0 +1,3 @@
+src/util.c: 250-267: Add #ifdef
+src/util.c: 31-38: Add #ifs
+src/sdiff.c: 808: Change kill to raise

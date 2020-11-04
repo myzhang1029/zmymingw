@@ -1,0 +1,10 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "binutils"
+ver = "2.29.1"
+
+[deps]
+req = [
+"libintl",
+]

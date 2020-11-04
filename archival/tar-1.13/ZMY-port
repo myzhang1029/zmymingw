@@ -1,0 +1,2 @@
+src/arith.h:Add typedef for tarlong for case else
+tests/genfile.c:167:Replace ç by c

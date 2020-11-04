@@ -1,0 +1,10 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "isl"
+ver = "0.19"
+
+[deps]
+req = [
+"gmp"
+]

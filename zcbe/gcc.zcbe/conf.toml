@@ -1,0 +1,14 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "gcc"
+ver = "9.3.0"
+
+[deps] # Dependencies
+req = [
+"gmp",
+"mpc",
+"mpfr",
+"binutils",
+"zlib",
+]

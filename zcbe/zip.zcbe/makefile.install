@@ -1,0 +1,32 @@
+LN=cp -p
+INSTALL=install
+INSTALL_D=install -d -m 755
+INSTALL_PROGRAM=install -m 755
+E=.exe
+prefix=/usr/local
+BINDIR=$(prefix)/bin
+MANEXT=1
+MANDIR=$(prefix)/man/man$(MANEXT)
+ZIPS=zip$E zipcloak$E zipnote$E zipsplit$E
+CHMOD=chmod
+BINFLAGS=755
+MANFLAGS=644
+
+install:        $(ZIPS)
+	-$(INSTALL_D) $(BINDIR)
+	$(INSTALL_PROGRAM) $(ZIPS) $(BINDIR)
+	-cd $(BINDIR); $(CHMOD) $(BINFLAGS) $(ZIPS)
+	-$(INSTALL_D) $(MANDIR)
+	$(INSTALL_PROGRAM) man/zip.1 $(MANDIR)/zip.$(MANEXT)
+	$(CHMOD) $(MANFLAGS) $(MANDIR)/zip.$(MANEXT)
+	$(INSTALL_PROGRAM) man/zipcloak.1 $(MANDIR)/zipcloak.$(MANEXT)
+	$(CHMOD) $(MANFLAGS) $(MANDIR)/zipcloak.$(MANEXT)
+	$(INSTALL_PROGRAM) man/zipnote.1 $(MANDIR)/zipnote.$(MANEXT)
+	$(CHMOD) $(MANFLAGS) $(MANDIR)/zipnote.$(MANEXT)
+	$(INSTALL_PROGRAM) man/zipsplit.1 $(MANDIR)/zipsplit.$(MANEXT)
+	$(CHMOD) $(MANFLAGS) $(MANDIR)/zipsplit.$(MANEXT)
+
+uninstall:
+	-cd $(BINDIR); rm -f $(ZIPS)
+	-cd $(MANDIR); rm -f \
+	 zip.$(MANEXT) zipcloak.$(MANEXT) zipnote.$(MANEXT) zipsplit.$(MANEXT)

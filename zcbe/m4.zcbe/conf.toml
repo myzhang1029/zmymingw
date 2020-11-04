@@ -1,0 +1,5 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "m4"
+ver = "1.4.18"

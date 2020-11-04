@@ -1,0 +1,10 @@
+[package]
+name = "ntbtls"
+ver = "0.1.2"
+
+[deps]
+req = [
+"libgpg-error",
+"libksba",
+"libgcrypt",
+]

@@ -1,0 +1,9 @@
+[package]
+name = "gpgme"
+ver = "1.13.1"
+
+[deps]
+req = [
+"libgpg-error",
+"libassuan",
+]

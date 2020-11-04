@@ -1,0 +1,10 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "xz"
+ver = "git"
+
+[deps]
+build = [
+"po4a"
+]

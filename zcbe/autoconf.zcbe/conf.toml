@@ -1,0 +1,15 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "autoconf"
+ver = "git"
+
+[deps] # Dependencies
+req = [
+"m4", # Required packages
+]
+build=[
+"autoconf",
+"automake",
+"perl",
+]

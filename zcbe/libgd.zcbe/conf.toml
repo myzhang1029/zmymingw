@@ -1,0 +1,15 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "libgd"
+ver = "2.2.5"
+
+[deps]
+req = [
+"fontconfig",
+"freetype",
+"jpeg",
+"libpng",
+"tiff",
+"libwebp",
+]

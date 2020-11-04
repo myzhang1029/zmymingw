@@ -1,0 +1,8 @@
+[package]
+name = "libgcrypt"
+ver = "1.8.5"
+
+[deps]
+req = [
+"libgpg-error"
+]

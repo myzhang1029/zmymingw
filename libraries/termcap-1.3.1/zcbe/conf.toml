@@ -1,0 +1,5 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "termcap"
+ver = "1.3.1"

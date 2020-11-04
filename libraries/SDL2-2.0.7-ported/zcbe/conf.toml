@@ -1,0 +1,5 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "sdl2"
+ver = "2.0.7"

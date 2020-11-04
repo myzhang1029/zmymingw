@@ -1,0 +1,8 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "make"
+ver = "git"
+
+[env]
+LC_CTYPE = "C"

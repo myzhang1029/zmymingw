@@ -1,0 +1,16 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "glib"
+ver = "2.50.0"
+
+[deps]
+req = [
+"libffi",
+"pcre",
+"libintl"
+]
+build = [
+"meson",
+"ninja"
+]

@@ -1,0 +1,9 @@
+[package]
+name = "libksba"
+ver = "1.3.5"
+
+[deps]
+req = [
+"libgpg-error"
+]
+

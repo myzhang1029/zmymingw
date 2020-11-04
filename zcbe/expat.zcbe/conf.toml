@@ -1,0 +1,11 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "expat"
+ver = "git"
+
+[deps]
+build = [
+"docbook2x",
+"docbook-utils"
+]

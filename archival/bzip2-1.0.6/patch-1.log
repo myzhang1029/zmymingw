@@ -1,0 +1,5 @@
+patching file autogen.sh
+patching file README.autotools
+patching file configure.ac
+patching file Makefile.am
+patching file bzip2.pc.in
