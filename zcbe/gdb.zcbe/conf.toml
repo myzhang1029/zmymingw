@@ -11,6 +11,8 @@ build = [
 ]
 req=[
 "pdcurses",
+"readline",
+"termcap",
 "expat",
 "mpfr"
 ]

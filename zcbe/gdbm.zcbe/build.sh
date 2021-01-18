@@ -1,5 +1,5 @@
 #!/bin/sh
-autoreconf -i
+autoreconf -fi
 ./configure --host="${ZCHOST}" --build="$(${ZCTOP}/zcbe/config.guess)" --prefix="${ZCPREF}"
 make
 make install
