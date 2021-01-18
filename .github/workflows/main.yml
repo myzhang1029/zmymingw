@@ -1,0 +1,60 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Build zmymingw
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        host_trip: ["x86_64-w64-mingw32", "i686-w64-mingw32"]
+
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Install dependencies, python, ZCBE, mingw and others
+      - name: Install dependencies
+        run: |
+          sudo apt-get -q update
+          sudo apt-get install -yq po4a build-essential docbook2x sphinx-doc file curl \
+          mingw-w64 nasm wine tcl rsync autopoint cmake autoconf automake libtool gettext \
+          texinfo pkg-config texi2html groff asciidoc xmlto python python-pip perl imagemagick \
+          meson ninja-build bison flex gfortran-mingw-w64 gperf docbook-utils help2man ed \
+          autoconf-archive fig2dev lua lua-mpack lua-bitop libtool-bin ccache
+          python -m pip install zcbe
+          
+      # Set build.toml
+      - name: Set build parameters
+        env:
+          HOST_TRIP: ${{ matrix.host_trip }}
+        run: sh set_up_ghaction.sh
+
+      - name: Ccache
+        uses: actions/cache@v2
+        with:
+          path: /home/runner/.ccache
+          key: ccache:${{ matrix.host_trip}}:${{ github.ref }}:${{ github.sha }}
+          restore-keys: |
+            ccache:${{ matrix.host_trip}}:${{ github.ref }}
+            ccache:${{ matrix.host_trip}}
+
+      - name: Build
+        run: zcbe -saj$(nproc)
