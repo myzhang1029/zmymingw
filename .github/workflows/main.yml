@@ -35,10 +35,11 @@ jobs:
         run: |
           sudo apt-get -q update
           sudo apt-get install -yq po4a build-essential docbook2x sphinx-doc file curl \
-          mingw-w64 nasm wine tcl rsync autopoint cmake autoconf automake libtool gettext \
-          texinfo pkg-config texi2html groff asciidoc xmlto python python-pip perl imagemagick \
-          meson ninja-build bison flex gfortran-mingw-w64 gperf docbook-utils help2man ed \
-          autoconf-archive fig2dev lua lua-mpack lua-bitop libtool-bin ccache
+          mingw-w64 nasm wine-stable tcl rsync autopoint cmake autoconf automake libtool \
+          gettext texinfo pkg-config texi2html groff asciidoc xmlto python python-pip \
+          perl imagemagick meson ninja-build bison flex gfortran-mingw-w64 gperf \
+          docbook-utils help2man ed autoconf-archive fig2dev lua5.1 lua-mpack lua-bitop \
+          libtool-bin ccache
           python -m pip install zcbe
           
       # Set build.toml
@@ -57,4 +58,4 @@ jobs:
             ccache:${{ matrix.host_trip}}
 
       - name: Build
-        run: zcbe -saj$(nproc)
+        run: zcbe -saj8
