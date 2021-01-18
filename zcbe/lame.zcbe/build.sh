@@ -1,18 +1,19 @@
 #!/bin/sh
 
 # Get include directory for target system
-for option in $(${ZCHOST}-gcc -v 2>&1 | grep with-headers | cut -f2 -d:)
-do
-    if echo "$option" | grep with-headers > /dev/null
-    then
-        dir="$(echo "$option" | cut -f2 -d=)"
-    fi
-done
+#for option in $(${ZCHOST}-gcc -v 2>&1 | grep with-headers | cut -f2 -d:)
+#do
+#    if echo "$option" | grep with-headers > /dev/null
+#    then
+#        dir="$(echo "$option" | cut -f2 -d=)"
+#    fi
+#done
 
 # lame includes Windef.h(capitalized), but mingw-w64 provides a lowercased one
-ln -s $dir/windef.h include/Windef.h || true
+#ln -s $dir/windef.h include/Windef.h || true
+echo "#include <windef.h>" > include/Windef.h
 
-CFLAGS="-DFLT_EPSILON=__FLT_EPSILON__ -DDBL_EPSILON=__DBL_EPSILON__ -DLDBL_EPSILON=__LDBL_EPSILON__" ./configure --prefix=${ZCPREF} --host=${ZCHOST} --enable-static --without-libiconv-prefix
+CFLAGS="-DFLT_EPSILON=__FLT_EPSILON__ -DDBL_EPSILON=__DBL_EPSILON__ -DLDBL_EPSILON=__LDBL_EPSILON__" ./configure --prefix=${ZCPREF} --host=${ZCHOST} --build="$(${ZCTOP}/zcbe/config.guess)" --enable-static --without-libiconv-prefix
 make
 make install
 cd Dll

@@ -1,6 +1,6 @@
 [package]
 name = "aria2"
-ver = "git"
+ver = "1.35.0"
 
 [deps]
 req = [

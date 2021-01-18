@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "curl"
-ver = "git"
+ver = "7.73.0"
 
 [deps]
 req = [

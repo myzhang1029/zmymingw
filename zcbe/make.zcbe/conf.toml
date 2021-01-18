@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "make"
-ver = "git"
+ver = "4.3"
 
 [env]
 LC_CTYPE = "C"

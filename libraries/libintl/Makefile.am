@@ -1,4 +1,6 @@
 AUTOMAKE_OPTIONS=foreign
-lib_LIBRARIES=libintl.a
-libintl_a_SOURCES=intl.c
+ACLOCAL_AMFLAGS = -I m4
+lib_LTLIBRARIES=libintl.la
+libintl_la_SOURCES=intl.c
+libintl_la_LDFLAGS = -no-undefined
 include_HEADERS=libintl.h

@@ -3,3 +3,8 @@
 [package]
 name = "bc"
 ver = "1.07.1"
+
+[deps]
+build = [
+"wine"
+]

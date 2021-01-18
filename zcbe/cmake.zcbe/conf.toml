@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "cmake"
-ver = "git"
+ver = "3.19.3"
 
 [deps] # Dependencies
 build = [

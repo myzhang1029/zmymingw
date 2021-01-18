@@ -1,5 +1,0 @@
-# Config file for a project
-# Placed in $SRCROOT/zcbe/conf.toml
-[package]
-name = "nasm"
-ver = "2.14rc15"

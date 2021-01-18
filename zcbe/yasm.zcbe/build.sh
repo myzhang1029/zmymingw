@@ -1,7 +1,8 @@
 #!/bin/sh
 
-autoreconf -i
-./configure --host="${ZCHOST}" --prefix="${ZCPREF}"
+./autogen.sh --host="${ZCHOST}" --build="$(${ZCTOP}/zcbe/config.guess)" --prefix="${ZCPREF}"
+# Re-run to avoid setting wrong toolchain
+./configure --host="${ZCHOST}" --build="$(${ZCTOP}/zcbe/config.guess)" --prefix="${ZCPREF}" --enable-maintainer-mode
 make
 make install
 make distclean

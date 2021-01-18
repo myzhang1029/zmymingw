@@ -1,8 +1,7 @@
 #!/bin/sh
-
 autoreconf -i
-./configure --host=${ZCHOST} --prefix=${ZCPREF}
-make||make
+LDFLAGS=-lgcc ./configure --host=${ZCHOST} --build="$(${ZCTOP}/zcbe/config.guess)" --prefix=${ZCPREF}
+make HOST_LINK=gcc
 make install
 make distclean
 exit 0

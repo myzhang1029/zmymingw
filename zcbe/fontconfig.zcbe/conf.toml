@@ -5,6 +5,10 @@ name = "fontconfig"
 ver = "2.13.0"
 
 [deps]
+build = [
+"pkg-config",
+"gperf",
+]
 req = [
 "expat",
 "freetype",

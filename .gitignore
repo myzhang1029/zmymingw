@@ -1,1 +1,4 @@
 config.log
+toolchain.cmake
+mesoncross.txt
+autom4te.cache

@@ -1,7 +1,6 @@
 #!/bin/sh
 
-autoreconf -i
-./configure --host=${ZCHOST} --prefix=${ZCPREF}
+./autogen.sh --host=${ZCHOST} --build="$(${ZCTOP}/zcbe/config.guess)" --prefix=${ZCPREF}
 make
 make install
 make distclean

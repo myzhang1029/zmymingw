@@ -2,13 +2,14 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "autoconf"
-ver = "git"
+ver = "2.69d"
 
 [deps] # Dependencies
 req = [
 "m4", # Required packages
 ]
 build=[
+"help2man",
 "autoconf",
 "automake",
 "perl",

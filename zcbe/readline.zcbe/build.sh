@@ -1,5 +1,5 @@
 #!/bin/sh
-LDFLAGS=-L${ZCPREF}/lib ./configure --host=${ZCHOST} --prefix=${ZCPREF} --enable-shared --enable-static
+LDFLAGS=-L${ZCPREF}/lib ./configure --host=${ZCHOST} --build="$(${ZCTOP}/zcbe/config.guess)" --prefix=${ZCPREF} --disable-shared --enable-static
 make
 make install
 make distclean

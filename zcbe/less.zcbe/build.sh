@@ -9,7 +9,7 @@ else
 fi
 
 autoreconf -i
-LDFLAGS=-L${ZCPREF}/lib CFLAGS=-I${ZCPREF}/include ./configure --host=${ZCHOST} --prefix=${ZCPREF} --with-regex=pcre
+LDFLAGS=-L${ZCPREF}/lib CFLAGS=-I${ZCPREF}/include ./configure --host=${ZCHOST} --build="$(${ZCTOP}/zcbe/config.guess)" --prefix=${ZCPREF} --with-regex=pcre
 
 $ised "/MSDOS_COMPILER/d;" defines.h
 echo "#define MSDOS_COMPILER WIN32C">>defines.h

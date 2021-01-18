@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "libssh2"
-ver = "git"
+ver = "1.9.0"
 
 [deps]
 req = [

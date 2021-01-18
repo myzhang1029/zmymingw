@@ -3,3 +3,8 @@
 [package]
 name = "zip"
 ver = "3.0"
+
+[deps]
+req = [
+"zlib"
+]

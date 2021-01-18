@@ -1,5 +1,6 @@
 #!/bin/sh
-CFLAGS=-DXMD_H\ -I${ZCPREF}/include LDFLAGS=-L${ZCPREF}/lib ./configure --prefix=${ZCPREF} --host=${ZCHOST}
+autoreconf -fi
+CFLAGS=-DXMD_H\ -I${ZCPREF}/include LDFLAGS=-L${ZCPREF}/lib ./configure --prefix=${ZCPREF} --host=${ZCHOST} --build="$(${ZCTOP}/zcbe/config.guess)" --enable-static --enable-shared
 make
 make install
 make distclean

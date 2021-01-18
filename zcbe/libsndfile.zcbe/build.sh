@@ -1,20 +1,13 @@
 #!/bin/sh
 
-ninja="$("${ZCTOP}"/zcbe/checkninja.sh)"
-
 mkdir build || true
 cd build
 
-CFLAGS=-w cmake .. -DCMAKE_TOOLCHAIN_FILE="${ZCTOP}"/toolchain.cmake -DCMAKE_INSTALL_PREFIX="${ZCPREF}" -G "${ninja}"
+"${ZCTOP}"/zcbe/gen_toolchainfile.sh
+cmake .. -DCMAKE_TOOLCHAIN_FILE="${ZCTOP}"/toolchain.cmake -DCMAKE_INSTALL_PREFIX="${ZCPREF}" -DCMAKE_C_FLAGS_INIT="-I${ZCPREF}/include -DFLAC__NO_DLL" -DCMAKE_EXE_LINKER_FLAGS_INIT="-fstack-protector"
 
-if [ "${ninja}" = "Ninja" ]
-then
-    ninja
-    ninja install
-else
-    make
-    make install
-fi
+make
+make install
 
 cd ..
 rm -rf build

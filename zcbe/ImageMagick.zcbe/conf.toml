@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "ImageMagick"
-ver = "git"
+ver = "7.0.10-5"
 
 [deps]
 req = [
@@ -15,6 +15,7 @@ req = [
 "libpng",
 "libxml2",
 "libwebp",
+"mingw-w64",
 "openjpeg",
 "tiff",
 "xz",

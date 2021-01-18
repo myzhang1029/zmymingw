@@ -1,0 +1,3 @@
+[package]
+name = "winpty"
+ver = "git"

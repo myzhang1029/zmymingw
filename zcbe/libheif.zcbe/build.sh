@@ -1,5 +1,5 @@
 #!/bin/sh
-
+"${ZCTOP}"/zcbe/gen_toolchainfile.sh
 ninja="$("${ZCTOP}"/zcbe/checkninja.sh)"
 
 mkdir build || true

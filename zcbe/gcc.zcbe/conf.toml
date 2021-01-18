@@ -2,9 +2,12 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "gcc"
-ver = "9.3.0"
+ver = "10.2.0"
 
 [deps] # Dependencies
+build = [
+"gfortran-mingw-w64"
+]
 req = [
 "gmp",
 "mpc",

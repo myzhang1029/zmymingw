@@ -1,7 +1,7 @@
 #!/bin/sh
 
-autoreconf -i
-./configure --host=${ZCHOST} --prefix=${ZCPREF}
+autoreconf -fi
+./configure --host=${ZCHOST} --build="$(${ZCTOP}/zcbe/config.guess)" --prefix=${ZCPREF} --enable-static --enable-shared
 make
 make install
 make distclean

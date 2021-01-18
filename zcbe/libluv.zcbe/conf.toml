@@ -1,0 +1,11 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "libluv"
+ver = "git"
+
+[deps]
+req = [
+"libuv",
+"luajit",
+]

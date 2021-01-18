@@ -3,3 +3,7 @@
 [package]
 name = "gmp"
 ver = "6.1.2"
+
+[env]
+# On WSL, this has to be explicitly set to avoid confusing configure
+CC_FOR_BUILD = "gcc"

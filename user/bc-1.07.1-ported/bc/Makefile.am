@@ -34,7 +34,7 @@ fbcOBJ = main.o bc.o scan.o execute.o load.o storage.o util.o warranty.o
 libmath.h: libmath.b $(fbcOBJ) $(LIBBC)
 	echo '{0}' > libmath.h
 	$(MAKE) global.o
-	$(LINK) -o fbc $(fbcOBJ) global.o $(LIBBC) $(LIBL) $(READLINELIB) $(LIBS)
+	$(HOST_LINK) -o fbc $(fbcOBJ) global.o $(LIBBC) $(LIBL) $(READLINELIB) $(LIBS)
 	./fbc -c $(srcdir)/libmath.b </dev/null >libmath.h
 	$(srcdir)/fix-libmath_h
 	rm -f ./fbc ./global.o

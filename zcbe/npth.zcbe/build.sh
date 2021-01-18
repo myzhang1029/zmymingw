@@ -1,7 +1,6 @@
 #!/bin/sh
-
 ./autogen.sh
-./configure --host=${ZCHOST} --prefix=${ZCPREF}
+./configure --enable-maintainer-mode --host=${ZCHOST} --build="$(${ZCTOP}/zcbe/config.guess)" --prefix=${ZCPREF}
 make
 make install
 make distclean

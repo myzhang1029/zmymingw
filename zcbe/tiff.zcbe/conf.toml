@@ -6,5 +6,8 @@ ver = "git"
 
 [deps]
 req = [
-"jpeg"
+"jpeg",
+"zstandard",
+"zlib",
+"xz",
 ]

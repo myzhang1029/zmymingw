@@ -2,9 +2,12 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "gnupg"
-ver = "2.2.7"
+ver = "2.2.27"
 
 [deps] # Dependencies
+build = [
+"imagemagick",
+]
 req = [
 "libintl",
 "libiconv",
@@ -13,6 +16,7 @@ req = [
 "libksba",
 "libgcrypt",
 "libassuan",
+"sqlite",
 "readline",
 "ntbtls",
 "npth",

@@ -1,21 +1,8 @@
 #!/bin/sh
 
-ninja="$("${ZCTOP}"/zcbe/checkninja.sh)"
-
-mkdir build || true
-cd build
-
-CFLAGS=-w cmake .. -DCMAKE_TOOLCHAIN_FILE="${ZCTOP}"/toolchain.cmake -DCMAKE_INSTALL_PREFIX="${ZCPREF}" -G "${ninja}"
-
-if [ "${ninja}" = "Ninja" ]
-then
-    ninja
-    ninja install
-else
-    make
-    make install
-fi
-
-cd ..
-rm -rf build
+./autogen.sh
+./configure --host=${ZCHOST} --build="$(${ZCTOP}/zcbe/config.guess)" --prefix=${ZCPREF} --enable-static --enable-shared
+make
+make install
+make distclean
 exit 0

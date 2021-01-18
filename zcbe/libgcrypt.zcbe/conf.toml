@@ -1,8 +1,11 @@
 [package]
 name = "libgcrypt"
-ver = "1.8.5"
+ver = "1.8.7"
 
 [deps]
+build = [
+"fig2dev"
+]
 req = [
 "libgpg-error"
 ]

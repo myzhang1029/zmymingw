@@ -1,6 +1,6 @@
 #!/bin/sh
 ./autogen.sh
-CFLAGS=-lssp ./configure --host=${ZCHOST} --prefix=${ZCPREF} --enable-static --disable-shared
+CFLAGS=-U_FORTIFY_SOURCE ./configure --host=${ZCHOST} --build="$(${ZCTOP}/zcbe/config.guess)" --prefix=${ZCPREF}
 make
 make install
 make distclean

@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "mpfr"
-ver = "4.0.1"
+ver = "4.1.0"
 
 [deps] # Dependencies
 req = [

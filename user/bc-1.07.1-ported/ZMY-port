@@ -1,3 +1,2 @@
-bc/Makefile: 631: Add $(RUN) for wine
-bc/execute.c: 296: Move random() to rand()
-bc/Makefile: 631: Add $(RUN)
+bc/Makefile.am:37:Add $(HOST_LINK)
+bc/execute.c:296:rand() instead of random()

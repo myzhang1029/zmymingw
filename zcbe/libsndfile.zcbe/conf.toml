@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "libsndfile"
-ver = "git"
+ver = "v1.0.30"
 
 [deps]
 req = [

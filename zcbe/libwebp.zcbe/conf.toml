@@ -6,7 +6,7 @@ ver = "git"
 
 [deps]
 req = [
-"tiff",
 "jpeg",
+"tiff",
 "giflib"
 ]

@@ -10,6 +10,7 @@ build = [
 "autopoint",
 "cmake",
 "autoconf",
+"autoconf-archive",
 "automake",
 "libtool",
 "gettext",
@@ -20,3 +21,5 @@ build = [
 [env]
 PKG_CONFIG_PATH = "${ZCPREF}/lib/pkgconfig"
 PKG_CONFIG_LIBDIR = "${ZCPREF}/lib/pkgconfig"
+AC_MINVER = "2.64"
+GNULIB_SRCDIR = "${ZCTOP}/libraries/gnulib"

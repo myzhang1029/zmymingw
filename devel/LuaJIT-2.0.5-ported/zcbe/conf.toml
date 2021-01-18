@@ -1,5 +1,0 @@
-# Config file for a project
-# Placed in $SRCROOT/zcbe/conf.toml
-[package]
-name = "LuaJIT"
-ver = "2.0.5"

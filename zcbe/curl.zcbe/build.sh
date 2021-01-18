@@ -1,6 +1,7 @@
 #!/bin/sh
-./buildconf
-./configure --host="${ZCHOST}" --prefix="${ZCPREF}" --without-brotli --with-ssl --with-libssh2 --with-zlib
+
+autoreconf -fi
+./configure --host="${ZCHOST}" --build="$(${ZCTOP}/zcbe/config.guess)" --prefix="${ZCPREF}" --without-brotli --with-ssl --with-libssh2 --with-zlib --enable-static --enable-shared
 make
 make install
 make clean

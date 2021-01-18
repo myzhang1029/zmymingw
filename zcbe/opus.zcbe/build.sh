@@ -1,6 +1,6 @@
 #!/bin/sh
 ./autogen.sh
-CFLAGS=-lssp ./configure --host=${ZCHOST} --prefix=${ZCPREF}
+LDFLAGS="-L${ZCPREF}/lib -lssp" ./configure --host=${ZCHOST} --build="$(${ZCTOP}/zcbe/config.guess)" --prefix=${ZCPREF} --enable-static --enable-shared
 make
 make install
 make distclean

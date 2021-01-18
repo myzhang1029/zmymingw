@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "opusfile"
-ver = "git"
+ver = "v0.12"
 
 [deps]
 req = [

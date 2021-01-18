@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "cairo"
-ver = "git"
+ver = "1.17.2"
 
 [deps]
 rep = [

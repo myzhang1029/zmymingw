@@ -1,5 +1,6 @@
 #!/bin/sh
-./configure --prefix=${ZCPREF} --host=${ZCHOST} --with-libgpg-error-prefix=${ZCPREF}
+./autogen.sh
+./configure --enable-maintainer-mode --prefix=${ZCPREF} --host=${ZCHOST} --build="$(${ZCTOP}/zcbe/config.guess)" --with-libgpg-error-prefix=${ZCPREF}
 make
 make install
 make distclean

@@ -1,5 +1,5 @@
 #!/bin/sh
-./configure --host=${ZCHOST} --prefix=${ZCPREF}
+./configure --host=${ZCHOST} --build="$(${ZCTOP}/zcbe/config.guess)" --prefix=${ZCPREF} --enable-shared --enable-static
 make
 make install
 make distclean
