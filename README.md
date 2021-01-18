@@ -18,7 +18,7 @@ Those build-time dependencies will be prompted to be installed when they are req
 
 Now you should have a customized free-and-opensource Windows toolchain.
 
-# License
-The build scripts are licensed under CC0 or in the public domain. Those projects have their respective separate
+## License
+The build scripts are licensed under CC0, or, released to the public domain. Those projects have their respective separate
 licenses. This repository and the scripts are provided to and only to aim the build of the projects. It is the
 user's responsibility to ensure the compliance with the respective licenses.
