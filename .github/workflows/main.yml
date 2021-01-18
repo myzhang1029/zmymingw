@@ -40,7 +40,7 @@ jobs:
           perl imagemagick meson ninja-build bison flex gfortran-mingw-w64 gperf \
           docbook-utils help2man ed autoconf-archive fig2dev lua5.1 lua-mpack lua-bitop \
           libtool-bin ccache
-          python3 -m pip install zcbe
+          python3 -m pip install zcbe==v0.5.0
           
       # Set build.toml
       - name: Set build parameters
