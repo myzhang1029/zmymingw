@@ -1,4 +1,5 @@
 config.log
+build.toml
 toolchain.cmake
 mesoncross.txt
 autom4te.cache
