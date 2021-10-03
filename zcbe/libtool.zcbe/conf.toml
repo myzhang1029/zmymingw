@@ -1,0 +1,10 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "libtool"
+ver = "2.4.6"
+
+[deps] # Dependencies
+req = [
+"autoconf",
+]

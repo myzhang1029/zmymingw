@@ -1,0 +1,24 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "ImageMagick"
+ver = "7.1.0-8"
+
+[deps]
+req = [
+"fftw",
+"fontconfig",
+"freetype",
+"jpeg",
+"lcms2",
+"libheif",
+"libpng",
+"libxml2",
+"libwebp",
+"mingw-w64",
+"openjpeg",
+"tiff",
+"xz",
+"zlib",
+"zstd",
+]

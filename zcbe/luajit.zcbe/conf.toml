@@ -1,0 +1,4 @@
+[package]
+name = "luajit"
+ver = "git"
+

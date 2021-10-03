@@ -1,0 +1,27 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "neovim"
+ver = "0.5.1"
+
+[deps]
+req = [
+"curl",
+"libluv",
+"luajit",
+"msgpack",
+"tree-sitter",
+"unibilium",
+"libvterm",
+"libtermkey",
+"winpty",
+]
+build = [
+"curl",
+"gperf",
+"lua",
+"lua-mpack",
+"lua-lpeg",
+"lua-bitop",
+"neovim",
+]

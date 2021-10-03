@@ -1,0 +1,14 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "ffmpeg"
+ver = "4.4"
+
+[deps] # Dependencies
+req = [
+"lame",
+"x264",
+"x265",
+"xvid",
+"sdl2",
+]

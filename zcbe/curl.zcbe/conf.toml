@@ -1,0 +1,16 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "curl"
+ver = "7.79.1"
+
+[deps]
+req = [
+"libssh2",
+"libressl",
+"zlib",
+]
+
+[env]
+LDFLAGS = "-L${ZCPREF}/lib"
+CFLAGS = "-I${ZCPREF}/include"

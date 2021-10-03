@@ -1,0 +1,10 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "x265"
+ver = "3.4"
+
+[deps] # Dependencies
+build = [
+"cmake",
+]

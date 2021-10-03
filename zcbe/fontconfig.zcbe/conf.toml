@@ -1,0 +1,17 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "fontconfig"
+ver = "2.13.0"
+
+[deps]
+build = [
+"pkg-config",
+"gperf",
+]
+req = [
+"expat",
+"freetype",
+"libpng",
+"libintl",
+]

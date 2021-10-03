@@ -1,0 +1,18 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "gdb"
+ver = "11.1"
+
+[deps]
+build = [
+"bison",
+"flex"
+]
+req=[
+"pdcurses",
+"readline",
+"termcap",
+"expat",
+"mpfr"
+]

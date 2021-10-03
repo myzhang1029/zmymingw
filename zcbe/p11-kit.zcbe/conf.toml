@@ -1,0 +1,11 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "p11-kit"
+ver = "0.23.2"
+
+[deps]
+req = [
+"libffi",
+"libtasn1",
+]

@@ -1,0 +1,17 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "libarchive"
+ver = "3.5.1"
+
+[deps]
+req = [
+"zstd",
+"libxml2",
+"zlib",
+"xz",
+"bzip2",
+"pcre",
+"libressl",
+"nettle",
+]

@@ -1,0 +1,16 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "autoconf"
+ver = "2.71"
+
+[deps] # Dependencies
+req = [
+"m4", # Required packages
+]
+build=[
+"help2man",
+"autoconf",
+"automake",
+"perl",
+]

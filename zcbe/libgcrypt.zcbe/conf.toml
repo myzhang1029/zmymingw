@@ -1,0 +1,11 @@
+[package]
+name = "libgcrypt"
+ver = "1.9.4"
+
+[deps]
+build = [
+"fig2dev"
+]
+req = [
+"libgpg-error"
+]

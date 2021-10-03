@@ -1,0 +1,10 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "libpng"
+ver = "1.6.37"
+
+[deps]
+req = [
+"zlib"
+]

@@ -1,0 +1,13 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "file"
+ver = "5.32"
+
+[deps]
+req = [
+"libgnurx"
+]
+build = [
+"file"
+]

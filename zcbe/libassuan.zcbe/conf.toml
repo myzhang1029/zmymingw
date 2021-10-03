@@ -1,0 +1,8 @@
+[package]
+name = "libassuan"
+ver = "2.5.5"
+
+[deps]
+req = [
+"libgpg-error"
+]

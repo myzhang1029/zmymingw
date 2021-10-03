@@ -1,0 +1,13 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "tiff"
+ver = "4.2.0"
+
+[deps]
+req = [
+"jpeg",
+"zstd",
+"zlib",
+"xz",
+]

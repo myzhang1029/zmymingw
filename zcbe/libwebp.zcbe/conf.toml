@@ -1,0 +1,12 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "libwebp"
+ver = "1.2.0"
+
+[deps]
+req = [
+"jpeg",
+"tiff",
+"giflib"
+]

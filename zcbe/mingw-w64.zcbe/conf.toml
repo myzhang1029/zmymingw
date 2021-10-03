@@ -1,0 +1,5 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "mingw-w64"
+ver = "9.0.0"

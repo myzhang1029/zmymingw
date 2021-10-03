@@ -1,0 +1,17 @@
+mingw-libgnurx-2.5.1/
+mingw-libgnurx-2.5.1/configure
+mingw-libgnurx-2.5.1/configure.ac
+mingw-libgnurx-2.5.1/aclocal.m4
+mingw-libgnurx-2.5.1/pkgid.m4
+mingw-libgnurx-2.5.1/Makefile.in
+mingw-libgnurx-2.5.1/README
+mingw-libgnurx-2.5.1/COPYING.LIB
+mingw-libgnurx-2.5.1/regcomp.c
+mingw-libgnurx-2.5.1/regex.c
+mingw-libgnurx-2.5.1/regexec.c
+mingw-libgnurx-2.5.1/regex_internal.c
+mingw-libgnurx-2.5.1/regex.h
+mingw-libgnurx-2.5.1/regex_internal.h
+mingw-libgnurx-2.5.1/regex.3
+mingw-libgnurx-2.5.1/regex.7
+mingw-libgnurx-2.5.1/ChangeLog

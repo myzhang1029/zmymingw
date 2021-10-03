@@ -1,0 +1,10 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "bc"
+ver = "1.07.1"
+
+[deps]
+build = [
+"bc"
+]

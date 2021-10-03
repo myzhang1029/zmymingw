@@ -1,0 +1,12 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "libsndfile"
+ver = "1.0.31"
+
+[deps]
+req = [
+"flac",
+"libogg",
+"vorbis",
+]

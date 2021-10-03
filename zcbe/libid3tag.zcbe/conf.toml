@@ -1,0 +1,10 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "libid3tag"
+ver = "0.15.1b"
+
+[deps]
+req = [
+"zlib"
+]

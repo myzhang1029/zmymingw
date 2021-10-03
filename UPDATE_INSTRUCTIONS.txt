@@ -1,0 +1,7 @@
+DO_NOT_UPDATE:
+readline == "8.0"
+
+giflib:
+ - update library version in configure.ac
+ - update libtool version from Makefile to Makefile.am
+

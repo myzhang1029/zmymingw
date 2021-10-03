@@ -1,0 +1,11 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "libxml2"
+ver = "2.9.10"
+
+[deps]
+req = [
+"xz",
+"zlib"
+]

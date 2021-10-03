@@ -1,0 +1,2 @@
+Makefile:42:Add EXESUF
+src/Makefile:117:$(strip)

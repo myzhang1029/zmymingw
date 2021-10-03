@@ -1,0 +1,9 @@
+[package]
+name = "libtermkey"
+ver = "git"
+
+[deps]
+req = [
+"pdcurses",
+"unibilium",
+]

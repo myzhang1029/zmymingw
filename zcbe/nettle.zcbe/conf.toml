@@ -1,0 +1,10 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "nettle"
+ver = "3.7.3"
+
+[deps]
+req = [
+"gmp"
+]

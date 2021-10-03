@@ -1,0 +1,43 @@
+################### Sort
+library:
+mingw-w64, PDCurses, termcap, libintl, libiconv, zlib, readline, gmp, mpfr, mpc, isl, pcre, libtasn1, libffi, nettle, openssl, libusb, x264, xvidcore, libunistring, mingw-gnurx, SDL2, gc, expat, p11-kit, glib, yaml
+
+devel:
+binutils, gcc, gdb, make, autoconf, automake, cmake, lua, ruby, yasm, gdbm, tcc, ctags, sqlite, libtool
+
+archival:
+gzip, bzip2, lzip, xz, zip, unzip, unrar
+
+user:
+bc, diffutils, sed, grep, less, wget, curl, file, vim, barcode, gnupg, ffmpeg, hello, sl
+################### Start
+
+# hello, less, libintl, binutils, gzip, gdb, gmp, make, xz, bzip2, mingwrt, automake, autoconf, nettle,libtasn1, libiconv, sed, yaml, ruby, libusb, SDL2, libgc, barcode, libtool, gnurx, yasm, sqlite, gdbm, libgpg-error, libunistring, expat, isl, readline. p11-kit, gnupg:
+
+./configure --host=i686-w64-mingw32 --target=i686-w64-mingw32 --prefix=$YourPrefix
+
+# tcc:
+./configure --prefix=$YourPrefix/opt/tcc --cross-prefix=i686-w64-mingw32- --enable-cross --sysroot=$YourPrefix --enable-mingw32
+make CC=i686-w64-mingw32-gcc AR=i686-w64-mingw32-ar WINE=wine
+make install 
+make distclean
+
+# Openssl:
+
+CROSS_COMPILE=i686-w64-mingw32- ./Configure --prefix=$YourPrefix mingw
+
+# GCC Depends on binutils, gmp, mpc, mpfr, mingwrt, zlib:
+
+./configure --host=i686-w64-mingw32 --build=`./config.guess` --target=i686-w64-mingw32 --prefix=$YourPrefix --with-zlib=$YourPrefix --with-mpfr=$YourPrefix --with-gmp=$YourPrefix --with-mpc=$YourPrefix
+make
+make install
+cp $YourPrefix/lib/libgcc_s_sjlj-1.dll $YourPrefix/bin
+
+# **IMPORTANT**
+
+# gvim: no configure
+
+make -f Make_ming.mak CROSS_COMPILE=i686-w64-mingw32-
+mkdir -p $YourPrefix/opt/
+cp -r ../vim80 $YourPrefix/opt/
+cp *.exe $YourPrefix/opt/vim80

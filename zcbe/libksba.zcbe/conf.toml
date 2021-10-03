@@ -1,0 +1,13 @@
+[package]
+name = "libksba"
+ver = "1.6.0"
+
+[deps]
+build = [
+# some versions cannot produce yytoknum
+"bison==3.3.2",
+]
+req = [
+"libgpg-error"
+]
+

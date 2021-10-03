@@ -1,0 +1,11 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "openjpeg"
+ver = "2.4.0"
+
+[deps] # Dependencies
+build = [
+"sphinx-doc",
+"cmake",
+]

@@ -1,0 +1,17 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "gcc"
+ver = "11.2.0"
+
+[deps] # Dependencies
+build = [
+"gfortran-mingw-w64"
+]
+req = [
+"gmp",
+"mpc",
+"mpfr",
+"binutils",
+"zlib",
+]

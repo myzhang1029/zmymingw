@@ -1,0 +1,23 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "gnupg"
+ver = "2.3.2"
+
+[deps] # Dependencies
+build = [
+"imagemagick",
+]
+req = [
+"libintl",
+"libiconv",
+"libgpg-error",
+"pinentry",
+"libksba",
+"libgcrypt",
+"libassuan",
+"sqlite",
+"readline",
+"ntbtls",
+"npth",
+]

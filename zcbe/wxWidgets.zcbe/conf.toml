@@ -1,0 +1,13 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "wxWidgets"
+ver = "3.1.4"
+
+[deps]
+req = [
+"tiff",
+"jpeg",
+"libpng",
+"zlib"
+]

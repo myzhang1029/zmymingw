@@ -1,0 +1,12 @@
+[package]
+name = "aria2"
+ver = "1.35.0"
+
+[deps]
+req = [
+"libssh2",
+"libcares",
+"gmp",
+"expat",
+"sqlite"
+]

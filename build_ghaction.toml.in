@@ -1,0 +1,26 @@
+# Build config file
+# Placed in current working directory of zcbe
+[info]
+build-name = "GitHub Actions build for @host_trip@"
+prefix = "/home/runner/artifact/@host_trip@"
+hostname = "@host_trip@"
+
+[deps]
+build = [
+"autopoint",
+"cmake",
+"autoconf",
+"autoconf-archive",
+"automake",
+"libtool",
+"gettext",
+"texinfo",
+"pkg-config"
+]
+
+[env]
+PKG_CONFIG_PATH = "${ZCPREF}/lib/pkgconfig"
+PKG_CONFIG_LIBDIR = "${ZCPREF}/lib/pkgconfig"
+AC_MINVER = "2.64"
+GNULIB_SRCDIR = "${ZCTOP}/libraries/gnulib"
+PATH="/home/runner/ccache_bin:${PATH}"

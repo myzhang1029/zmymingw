@@ -1,0 +1,5 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "bzip2"
+ver = "1.0.8"
