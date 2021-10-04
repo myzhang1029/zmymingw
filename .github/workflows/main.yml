@@ -4,11 +4,11 @@ name: Build zmymingw
 
 # Controls when the action will run. 
 on:
-  # Triggers the workflow on push or pull request events but only for the master branch
+  # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -62,5 +62,15 @@ jobs:
             ccache:${{ matrix.host_trip}}:${{ github.ref }}
             ccache:${{ matrix.host_trip}}
 
+      # Whatever it built is considered as success
       - name: Build
-        run: python3 -m zcbe -sayj8
+        run: |
+          sh -c 'python3 -m zcbe -sayj8 || true'
+          cd /home/runner/artifact
+          tar -Jcf ${{ matrix.host_trip }}.tar.xz ${{ matrix.host_trip }}
+
+      - name: Upload Result
+        uses: actions/upload-artifact@v2.2.4
+        with:
+          name: ${{ matrix.host_trip }}.tar.xz
+          path: /home/runner/artifact/${{ matrix.host_trip }}.tar.xz
