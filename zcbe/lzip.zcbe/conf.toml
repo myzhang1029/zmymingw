@@ -2,4 +2,4 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "lzip"
-ver = "1.19"
+ver = "1.25"

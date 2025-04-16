@@ -1,0 +1,10 @@
+diff --git a/Makefile.am b/Makefile.am
+index afe70a2e..11b3fa40 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -1,4 +1,4 @@
+-SUBDIRS =  po lib deps src doc test
++SUBDIRS =  lib deps src doc test
+
+ ACLOCAL_AMFLAGS = -I m4 --install
+ RST2HTML = @RST2HTML@

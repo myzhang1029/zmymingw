@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "libarchive"
-ver = "3.5.1"
+ver = "3.7.9"
 
 [deps]
 req = [
@@ -15,3 +15,6 @@ req = [
 "libressl",
 "nettle",
 ]
+
+[env]
+CC = "${ZCHOST}-gcc"

@@ -2,4 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "sed"
-ver = "git"
+ver = "4.9"
+
+[env]
+CC = "${ZCHOST}-gcc"

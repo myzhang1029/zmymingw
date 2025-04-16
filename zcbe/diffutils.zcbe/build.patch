@@ -1,0 +1,14 @@
+diff --git a/src/sdiff.c b/src/sdiff.c
+index 7734a82..c2b305a 100644
+--- a/src/sdiff.c
++++ b/src/sdiff.c
+@@ -574,7 +574,7 @@ main (int argc, char *argv[])
+       diffarg (argv[optind]);
+       diffarg (argv[optind + 1]);
+       diffarg (nullptr);
+-      execvp (diffargv[0], (char **) diffargv);
++      execvp (diffargv[0], (const char * const*) diffargv);
+       perror_fatal (squote (0, diffargv[0]));
+     }
+   else
+

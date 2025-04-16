@@ -2,9 +2,12 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "flac"
-ver = "git"
+ver = "1.5.0"
 
 [deps]
 req = [
 "libogg"
 ]
+
+[env]
+CC = "${ZCHOST}-gcc"

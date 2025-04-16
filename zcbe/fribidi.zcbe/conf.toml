@@ -3,3 +3,6 @@
 [package]
 name = "fribidi"
 ver = "1.0.4"
+
+[env]
+CC = "${ZCHOST}-gcc"

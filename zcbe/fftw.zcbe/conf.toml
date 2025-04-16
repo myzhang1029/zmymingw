@@ -3,3 +3,6 @@
 [package]
 name = "fftw"
 ver = "3.3.8"
+
+[env]
+CC = "${ZCHOST}-gcc"

@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "gnupg"
-ver = "2.3.2"
+ver = "2.4.7"
 
 [deps] # Dependencies
 build = [
@@ -21,3 +21,6 @@ req = [
 "ntbtls",
 "npth",
 ]
+
+[env]
+CC = "${ZCHOST}-gcc"

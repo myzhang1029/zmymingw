@@ -3,3 +3,6 @@
 [package]
 name = "lame"
 ver = "3.100"
+
+[env]
+CC = "${ZCHOST}-gcc"

@@ -2,9 +2,14 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "pixman"
-ver = "0.40.0"
+ver = "0.44.2"
 
 [deps]
+build = [
+"meson",
+"ninja",
+]
 req = [
-"libpng"
+"glib",
+"libpng",
 ]

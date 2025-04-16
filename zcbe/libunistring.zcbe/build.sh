@@ -7,7 +7,7 @@ else
     # BSD sed's -i needs a postfix
     sed -i "" "s/AC_PREREQ\(.*\)/AC_PREREQ([${AC_MINVER}])/" configure.ac
 fi
-GNULIB_TOOL="${ZCTOP}/libraries/gnulib/gnulib-tool" ./autogen.sh
+GNULIB_SRCDIR="${ZCTOP}/libraries/gnulib" ./autogen.sh
 ./configure --host=${ZCHOST} --build="$(${ZCTOP}/zcbe/config.guess)" --prefix=${ZCPREF}
 make
 make install

@@ -1,0 +1,13 @@
+diff --git a/configure.ac b/configure.ac
+index f047895..473a815 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -14,8 +14,6 @@ case "${host}" in
+     ;;
+ esac
+
+-AX_ENABLE_BUILDDIR
+-
+ AM_INIT_AUTOMAKE
+
+ # The same as in boehm-gc and libstdc++. Have to borrow it from there.

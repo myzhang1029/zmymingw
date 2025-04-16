@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "tiff"
-ver = "4.2.0"
+ver = "4.7.0"
 
 [deps]
 req = [
@@ -11,3 +11,6 @@ req = [
 "zlib",
 "xz",
 ]
+
+[env]
+CC = "${ZCHOST}-gcc"

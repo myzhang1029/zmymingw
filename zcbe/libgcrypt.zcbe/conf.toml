@@ -1,6 +1,6 @@
 [package]
 name = "libgcrypt"
-ver = "1.9.4"
+ver = "1.11.0"
 
 [deps]
 build = [
@@ -9,3 +9,6 @@ build = [
 req = [
 "libgpg-error"
 ]
+
+[env]
+CC = "${ZCHOST}-gcc"

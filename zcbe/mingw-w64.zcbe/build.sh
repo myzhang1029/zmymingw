@@ -1,4 +1,5 @@
 #!/bin/sh
+
 autoreconf -i
 # Install the headers before everything else
 (

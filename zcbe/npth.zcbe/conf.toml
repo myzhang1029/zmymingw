@@ -2,4 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "npth"
-ver = "1.6"
+ver = "1.8"
+
+[env]
+CC = "${ZCHOST}-gcc"

@@ -2,9 +2,12 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "pcre"
-ver = "8.44"
+ver = "10.45"
 
 [deps]
 req = [
 "readline"
 ]
+
+[env]
+CC = "${ZCHOST}-gcc"

@@ -2,4 +2,8 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "sqlite"
-ver = "3250300"
+ver = "3490100"
+
+[env]
+CC = "${ZCHOST}-gcc"
+CXX = "${ZCHOST}-g++"

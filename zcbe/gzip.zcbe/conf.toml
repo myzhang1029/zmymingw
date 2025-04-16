@@ -2,9 +2,13 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "gzip"
-ver = "1.11"
+ver = "1.14"
 
 [deps]
 build = [
-"rsync"
+"rsync",
+"texinfo",
 ]
+
+[env]
+CC = "${ZCHOST}-gcc"

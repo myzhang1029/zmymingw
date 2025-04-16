@@ -1,0 +1,10 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "libpsl"
+ver = "0.21.5"
+
+[deps]
+req = [
+"libunistring",
+]

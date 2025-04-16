@@ -10,12 +10,13 @@ else
     sed -i "" "s/^getopt$/getopt-gnu/" bootstrap.conf
 fi
 
-patch -b -u src/util.c -i "${ZCTOP}/zcbe/diffutils.zcbe/signals.patch"
+patch -u < "${ZCTOP}/zcbe/diffutils.zcbe/build.patch"
 
 ./bootstrap --gnulib-srcdir="${ZCTOP}"/libraries/gnulib --no-git
 LIBS=-lbcrypt ./configure --host=${ZCHOST} --build="$(${ZCTOP}/zcbe/config.guess)" --prefix=${ZCPREF} --without-doc
 make || touch man/cmp.1 man/diff.1 man/diff3.1 man/sdiff.1 && make
 make install
 make distclean
-mv src/util.c.orig src/util.c
+
+patch -R -u < "${ZCTOP}/zcbe/diffutils.zcbe/build.patch"
 exit 0

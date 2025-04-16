@@ -1,6 +1,10 @@
 #!/bin/sh
-CFLAGS=-I${ZCPREF}/include LDFLAGS=-L${ZCPREF}/lib ./configure --prefix=${ZCPREF} --host=${ZCHOST} --build="$(${ZCTOP}/zcbe/config.guess)" --without-harfbuzz --enable-static --enable-shared
-make
-make install
-make distclean
+"${ZCTOP}"/zcbe/gen_toolchainfile.sh
+ninja="$("${ZCTOP}"/zcbe/checkninja.sh)"
+
+CFLAGS=-w cmake -DCMAKE_TOOLCHAIN_FILE="${ZCTOP}"/toolchain.cmake -DCMAKE_INSTALL_PREFIX="${ZCPREF}" -G "${ninja}" -S . -B build
+cmake --build build
+cmake --install build
+
+rm -rf build
 exit 0

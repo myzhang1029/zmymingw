@@ -2,9 +2,12 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "readline"
-ver = "8.1"
+ver = "8.0"
 
 [deps]
 req = [
     "termcap"
 ]
+
+[env]
+CC = "${ZCHOST}-gcc"

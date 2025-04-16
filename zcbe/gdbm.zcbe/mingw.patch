@@ -1,0 +1,457 @@
+diff --git a/src/fullio.c b/src/fullio.c
+index a15b2fd..b3f1e95 100644
+--- a/src/fullio.c
++++ b/src/fullio.c
+@@ -84,7 +84,11 @@ _gdbm_full_write (GDBM_FILE dbf, void *buffer, size_t size)
+ int
+ _gdbm_file_extend (GDBM_FILE dbf, off_t size)
+ {
++#ifdef __MINGW64__
++  size_t page_size = 4096;
++#else
+   size_t page_size = sysconf (_SC_PAGESIZE);
++#endif
+   char *buf;
+   off_t file_end;
+ 
+diff --git a/src/gdbm_load.c b/src/gdbm_load.c
+index 41cb820..2f7fbe3 100644
+--- a/src/gdbm_load.c
++++ b/src/gdbm_load.c
+@@ -18,16 +18,20 @@
+ # include "gdbm.h"
+ # include "gdbmapp.h"
+ # include "gdbmdefs.h"
++#ifndef __MINGW64__
+ # include <pwd.h>
+ # include <grp.h>
++#endif
+ 
+ int replace = 0;
+ int meta_mask = 0;
+ int no_meta_option;
+ 
+ int mode;
++#ifndef __MINGW64__
+ uid_t owner_uid;
+ gid_t owner_gid;
++#endif
+ 
+ char *parseopt_program_doc = N_("load a GDBM database from a file");
+ char *parseopt_program_args = N_("FILE [DB_FILE]");
+@@ -45,6 +49,7 @@ struct gdbm_option optab[] = {
+ static int
+ set_meta_info (GDBM_FILE dbf)
+ {
++#ifndef __MINGW64__
+   if (meta_mask)
+     {
+       int fd = gdbm_fdesc (dbf);
+@@ -63,6 +68,7 @@ set_meta_info (GDBM_FILE dbf)
+ 	  return 1;
+ 	}
+     }
++#endif
+   return 0;
+ }
+ 
+@@ -139,6 +145,7 @@ main (int argc, char **argv)
+ 	}
+ 	break;
+ 
++#ifndef __MINGW64__
+       case 'u':
+ 	{
+ 	  size_t len;
+@@ -198,6 +205,7 @@ main (int argc, char **argv)
+ 	  meta_mask |= GDBM_META_MASK_OWNER;
+ 	}
+ 	break;
++#endif
+ 	  
+       case 'r':
+ 	replace = 1;
+diff --git a/src/gdbmdump.c b/src/gdbmdump.c
+index 9456e8f..b4c2d88 100644
+--- a/src/gdbmdump.c
++++ b/src/gdbmdump.c
+@@ -17,8 +17,10 @@
+ # include "autoconf.h"
+ # include "gdbmdefs.h"
+ # include "gdbm.h"
++#ifndef __MINGW64__
+ # include <pwd.h>
+ # include <grp.h>
++#endif
+ # include <time.h>
+ 
+ static int
+@@ -56,8 +58,10 @@ _gdbm_dump_ascii (GDBM_FILE dbf, FILE *fp)
+   time_t t;
+   int fd;
+   struct stat st;
++#ifndef __MINGW64__
+   struct passwd *pw;
+   struct group *gr;
++#endif
+   datum key;
+   size_t count = 0;
+   unsigned char *buffer = NULL;
+@@ -76,13 +80,17 @@ _gdbm_dump_ascii (GDBM_FILE dbf, FILE *fp)
+ 
+   fprintf (fp, "#:file=%s\n", dbf->name);
+   fprintf (fp, "#:uid=%lu,", (unsigned long) st.st_uid);
++#ifndef __MINGW64__
+   pw = getpwuid (st.st_uid);
+   if (pw)
+     fprintf (fp, "user=%s,", pw->pw_name);
++#endif
+   fprintf (fp, "gid=%lu,", (unsigned long) st.st_gid);
++#ifndef __MINGW64__
+   gr = getgrgid (st.st_gid);
+   if (gr)
+     fprintf (fp, "group=%s,", gr->gr_name);
++#endif
+   fprintf (fp, "mode=%03o\n", st.st_mode & 0777);
+   fprintf (fp, "# End of header\n");
+   
+diff --git a/src/gdbmexp.c b/src/gdbmexp.c
+index d297a35..ac03fa0 100644
+--- a/src/gdbmexp.c
++++ b/src/gdbmexp.c
+@@ -18,7 +18,11 @@
+ 
+ /* Include system configuration before all else. */
+ # include "autoconf.h"
++#ifdef __MINGW64__
++# include <winsock2.h>
++#else
+ # include <arpa/inet.h>
++#endif
+ 
+ #ifdef GDBM_EXPORT_18
+ # define GDBM_SET_ERRNO(dbf, ec, fatal) gdbm_errno = ec
+diff --git a/src/gdbmimp.c b/src/gdbmimp.c
+index 5ca8e81..ce36fc1 100644
+--- a/src/gdbmimp.c
++++ b/src/gdbmimp.c
+@@ -17,7 +17,11 @@
+    along with GDBM. If not, see <http://www.gnu.org/licenses/>.   */
+ 
+ # include "autoconf.h"
++#ifdef __MINGW64__
++# include <winsock2.h>
++#else
+ # include <arpa/inet.h>
++#endif
+ # include <limits.h>
+ 
+ # include "gdbmdefs.h"
+diff --git a/src/gdbmload.c b/src/gdbmload.c
+index 29dc19c..23ca69f 100644
+--- a/src/gdbmload.c
++++ b/src/gdbmload.c
+@@ -18,8 +18,10 @@
+ # include "gdbmdefs.h"
+ # include "gdbm.h"
+ # include <sys/types.h>
++#ifndef __MINGW64__
+ # include <pwd.h>
+ # include <grp.h>
++#endif
+ 
+ struct datbuf
+ {
+@@ -289,13 +291,16 @@ static int
+ _set_gdbm_meta_info (GDBM_FILE dbf, char *param, int meta_mask)
+ {
+   unsigned long n;
++#ifndef __MINGW64__
+   uid_t owner_uid;
+   uid_t owner_gid;
++#endif
+   mode_t mode;
+   int meta_flags = 0;
+   const char *p;
+   char *end;
+ 
++#ifndef __MINGW64__
+   if (!(meta_mask & GDBM_META_MASK_OWNER))
+     {
+       p = getparm (param, "user");
+@@ -341,6 +346,7 @@ _set_gdbm_meta_info (GDBM_FILE dbf, char *param, int meta_mask)
+ 	    }
+ 	}
+     }
++#endif
+   
+   if (!(meta_mask & GDBM_META_MASK_MODE))
+     {
+@@ -357,6 +363,7 @@ _set_gdbm_meta_info (GDBM_FILE dbf, char *param, int meta_mask)
+ 	}
+     }
+   
++#ifndef __MINGW64__
+   if (meta_flags)
+     {
+       int fd = gdbm_fdesc (dbf);
+@@ -387,6 +394,7 @@ _set_gdbm_meta_info (GDBM_FILE dbf, char *param, int meta_mask)
+ 	  return 1;
+ 	}
+     }
++#endif
+   return 0;
+ }
+ 
+diff --git a/src/gdbmopen.c b/src/gdbmopen.c
+index 8092432..f398d22 100644
+--- a/src/gdbmopen.c
++++ b/src/gdbmopen.c
+@@ -32,7 +32,7 @@
+ #endif
+ 
+ static void
+-compute_directory_size (blksize_t block_size,
++compute_directory_size (ssize_t block_size,
+ 			int *ret_dir_size, int *ret_dir_bits)
+ {
+   /* Create the initial hash table directory.  */
+diff --git a/src/gdbmtool.c b/src/gdbmtool.c
+index 7fbecc0..3b49e9e 100644
+--- a/src/gdbmtool.c
++++ b/src/gdbmtool.c
+@@ -21,9 +21,11 @@
+ #include <errno.h>
+ #include <ctype.h>
+ #include <signal.h>
++#ifndef __MINGW64__
+ #include <pwd.h>
+ #include <sys/ioctl.h>
+ #include <termios.h>
++#endif
+ #include <stdarg.h>
+ #ifdef HAVE_LOCALE_H
+ # include <locale.h>
+@@ -1959,16 +1961,20 @@ source_rcfile (void)
+     {
+       char *fname;
+       char *p = getenv ("HOME");
++#ifndef __MINGW64__
+       if (!p)
+ 	{
+ 	  struct passwd *pw = getpwuid (getuid ());
+ 	  if (!pw)
+ 	    {
++#endif
+ 	      terror (_("cannot find home directory"));
+ 	      return;
++#ifndef __MINGW64__
+ 	    }
+ 	  p = pw->pw_dir;
+ 	}
++#endif
+       fname = mkfilename (p, GDBMTOOLRC, NULL);
+       if (access (fname, R_OK) == 0)
+ 	{
+@@ -2125,7 +2131,9 @@ main (int argc, char *argv[])
+ 	}
+     }
+ 
++#ifndef __MINGW64__
+   signal (SIGPIPE, SIG_IGN);
++#endif
+ 
+   memset (&param, 0, sizeof (param));
+   argmax = 0;
+diff --git a/src/lock.c b/src/lock.c
+index 23711aa..8e5c654 100644
+--- a/src/lock.c
++++ b/src/lock.c
+@@ -23,7 +23,7 @@
+ 
+ #include <errno.h>
+ 
+-#if HAVE_FLOCK
++#if HAVE_FLOCK || defined(_WIN32)
+ # ifndef LOCK_SH
+ #  define LOCK_SH 1
+ # endif
+@@ -41,19 +41,95 @@
+ # endif
+ #endif
+ 
++#ifdef _WIN32
++#include <errno.h>
++#include <limits.h>
++#include <windows.h>
++
++/*
++ * flock support code for windows
++ *
++ * This code is derived from ruby (http://www.ruby-lang.org/).
++ * Original copyright notice is below.
++ */
++/*
++ *  Copyright (c) 1993, Intergraph Corporation
++ *
++ *  You may distribute under the terms of either the GNU General Public
++ *  License or the Artistic License, as specified in the perl README file.
++ *
++ *  Various Unix compatibility functions and NT specific functions.
++ *
++ *  Some of this code was derived from the MSDOS port(s) and the OS/2 port.
++ *
++ */
++
++#ifndef EWOULDBLOCK
++#define EWOULDBLOCK 10035 /* EBASEERR + 35 (winsock.h) */
++#endif
++
++#define LK_ERR(f,i) ((f) ? (i = 0) : (errno = GetLastError() == ERROR_LOCK_VIOLATION ? EWOULDBLOCK : EACCES))
++#define LK_LEN      ULONG_MAX
++
++static int
++flock_winnt(HANDLE fh, int oper)
++{
++    OVERLAPPED o;
++    int i = -1;
++
++    memset(&o, 0, sizeof(o));
++
++    switch(oper) {
++      case LOCK_SH:		/* shared lock */
++	LK_ERR(LockFileEx(fh, 0, 0, LK_LEN, LK_LEN, &o), i);
++	break;
++      case LOCK_EX:		/* exclusive lock */
++	LK_ERR(LockFileEx(fh, LOCKFILE_EXCLUSIVE_LOCK, 0, LK_LEN, LK_LEN, &o), i);
++	break;
++      case LOCK_SH|LOCK_NB:	/* non-blocking shared lock */
++	LK_ERR(LockFileEx(fh, LOCKFILE_FAIL_IMMEDIATELY, 0, LK_LEN, LK_LEN, &o), i);
++	break;
++      case LOCK_EX|LOCK_NB:	/* non-blocking exclusive lock */
++	LK_ERR(LockFileEx(fh,
++			  LOCKFILE_EXCLUSIVE_LOCK|LOCKFILE_FAIL_IMMEDIATELY,
++			  0, LK_LEN, LK_LEN, &o), i);
++	break;
++      case LOCK_UN:		/* unlock lock */
++	LK_ERR(UnlockFileEx(fh, 0, LK_LEN, LK_LEN, &o), i);
++	break;
++      default:            /* unknown */
++	errno = EINVAL;
++	break;
++    }
++    return i;
++}
++
++#undef LK_ERR
++
++int
++flock(int fd, int oper)
++{
++    static int (*locker)(HANDLE, int) = NULL;
++
++    if (!locker) {
++	locker = flock_winnt;
++    }
++
++    return locker((HANDLE)_get_osfhandle(fd), oper);
++}
++#endif /* _WIN32 */
++
+ #if defined(F_SETLK) && defined(F_RDLCK) && defined(F_WRLCK)
+ # define HAVE_FCNTL_LOCK 1
+ #else
+ # define HAVE_FCNTL_LOCK 0
+ #endif
+ 
+-#if 0
+ int
+ gdbm_locked (GDBM_FILE dbf)
+ {
+   return (dbf->lock_type != LOCKING_NONE);
+ }
+-#endif
+ 
+ void
+ _gdbm_unlock_file (GDBM_FILE dbf)
+diff --git a/src/proto.h b/src/proto.h
+index 7c03b9d..a79698d 100644
+--- a/src/proto.h
++++ b/src/proto.h
+@@ -150,6 +150,9 @@ gdbm_file_sync (GDBM_FILE dbf)
+       return 1;
+     }
+   return 0;
++#elif defined(_WIN32)
++  _commit (dbf->desc);
++  _commit (dbf->desc);
+ #else
+   sync ();
+   sync ();
+diff --git a/src/recover.c b/src/recover.c
+index b4b577c..e886c1c 100644
+--- a/src/recover.c
++++ b/src/recover.c
+@@ -29,16 +29,20 @@ gdbm_copy_meta (GDBM_FILE dst, GDBM_FILE src)
+       GDBM_SET_ERRNO (src, GDBM_FILE_STAT_ERROR, src->need_recovery);
+       return -1;
+     }
++#if HAVE_FCHOWN
+   if (fchown (dst->desc, st.st_uid, st.st_gid))
+     {
+       GDBM_SET_ERRNO (dst, GDBM_ERR_FILE_OWNER, dst->need_recovery);
+       return -1;
+     }
++#endif
++#if HAVE_FCHMOD
+   if (fchmod (dst->desc, st.st_mode & 0777))
+     {
+       GDBM_SET_ERRNO (dst, GDBM_ERR_FILE_MODE, dst->need_recovery);
+       return -1;
+     }
++#endif
+   return 0;
+ }
+ 
+diff --git a/src/systems.h b/src/systems.h
+index 1ca9caa..293fc28 100644
+--- a/src/systems.h
++++ b/src/systems.h
+@@ -56,4 +56,3 @@
+ # define STDERR_FILENO 2
+ #endif
+ 
+-
+diff --git a/src/util.c b/src/util.c
+index aa56dc4..b6d031c 100644
+--- a/src/util.c
++++ b/src/util.c
+@@ -15,7 +15,9 @@
+    along with GDBM. If not, see <http://www.gnu.org/licenses/>.    */
+ 
+ #include "gdbmtool.h"
++#ifndef __MINGW64__
+ #include <pwd.h>
++#endif
+ 
+ char *
+ mkfilename (const char *dir, const char *file, const char *suf)
+@@ -48,6 +50,7 @@ tildexpand (char *s)
+     {
+       char *p = s + 1;
+       size_t len = strcspn (p, "/");
++#ifndef __MINGW64__
+       struct passwd *pw;
+ 
+       if (len == 0)
+@@ -63,6 +66,10 @@ tildexpand (char *s)
+ 	}
+       if (pw)
+ 	return mkfilename (pw->pw_dir, p + len + 1, NULL);
++#else
++      char *d = getenv ("HOME");
++      return mkfilename (d, p + len + 1, NULL);
++#endif
+     }
+   return estrdup (s);
+ }

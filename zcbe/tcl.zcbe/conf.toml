@@ -2,4 +2,4 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "tcl"
-ver = "8.7a5"
+ver = "9.0b3"

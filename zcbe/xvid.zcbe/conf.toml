@@ -3,3 +3,6 @@
 [package]
 name = "xvid"
 ver = "1.3.7"
+
+[env]
+CC = "${ZCHOST}-gcc"

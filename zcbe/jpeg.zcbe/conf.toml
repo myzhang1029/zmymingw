@@ -2,4 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "jpeg"
-ver = "9c"
+ver = "9f"
+
+[env]
+CC = "${ZCHOST}-gcc"

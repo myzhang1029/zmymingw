@@ -1,4 +1,0 @@
-# Unpacked from GnuWin32
-src/Makefile.in:113:Remove extra prerequisite bison-res.o
-lib/confsys.h:Comment out the whole file
-lib/xreadlink.h:Add new file

@@ -2,10 +2,13 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "libssh2"
-ver = "1.10.0"
+ver = "1.11.1"
 
 [deps]
 req = [
 "libressl",
 "zlib",
 ]
+
+[env]
+CC = "${ZCHOST}-gcc"

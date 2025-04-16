@@ -2,4 +2,4 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "m4"
-ver = "1.4.18"
+ver = "1.4.19-head"

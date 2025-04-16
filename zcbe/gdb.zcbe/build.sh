@@ -11,7 +11,7 @@ LDFLAGS="-L${ZCPREF}/lib" LIBS=-ltermcap CFLAGS="-I${ZCPREF}/include" \
 # gdb/utils.c contains a false assumption about readline.h
 LDFLAGS="-L${ZCPREF}/lib" LIBS=-ltermcap CFLAGS="-I${ZCPREF}/include" \
     make configure-gdb
-echo "extern int tgetnum (const char *name);" >> gdb/config.h
+echo "extern \"C\" { extern int tgetnum (const char *name); }" >> gdb/config.h
 # actually make things
 make
 make install

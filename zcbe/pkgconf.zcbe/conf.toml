@@ -1,0 +1,8 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "pkgconf"
+ver = "2.4.3"
+
+[env]
+CC = "${ZCHOST}-gcc"

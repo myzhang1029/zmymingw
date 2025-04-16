@@ -8,3 +8,6 @@ ver = "2.5.4a"
 build = [
 "bison",
 ]
+
+[env]
+CC = "${ZCHOST}-gcc"

@@ -2,4 +2,9 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "lua"
-ver = "5.3.4"
+ver = "5.4.7"
+
+[deps]
+req = [
+"readline"
+]

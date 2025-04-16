@@ -2,9 +2,12 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "diffutils"
-ver = "3.8"
+ver = "3.12"
 
 [deps]
 build = [
 "patch",
 ]
+
+[env]
+CC = "${ZCHOST}-gcc"

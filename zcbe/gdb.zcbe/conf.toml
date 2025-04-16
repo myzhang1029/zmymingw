@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "gdb"
-ver = "11.1"
+ver = "16.2"
 
 [deps]
 build = [
@@ -16,3 +16,6 @@ req=[
 "expat",
 "mpfr"
 ]
+
+[env]
+CC = "${ZCHOST}-gcc"

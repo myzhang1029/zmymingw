@@ -9,7 +9,7 @@ autoreconf -i
 mkdir build
 (
 cd build
-../configure --host="${ZCHOST}" --build="$(${ZCTOP}/zcbe/config.guess)" --target="${ZCHOST}" --prefix="${ZCPREF}" --with-zlib="${ZCPREF}" \
+CFLAGS=-Wno-unused-parameter ../configure --host="${ZCHOST}" --build="$(${ZCTOP}/zcbe/config.guess)" --target="${ZCHOST}" --prefix="${ZCPREF}" --with-zlib="${ZCPREF}" \
 --with-mpfr="${ZCPREF}" --with-gmp="${ZCPREF}" --with-mpc="${ZCPREF}" \
 --enable-languages=c,c++,fortran,lto --disable-multilib --disable-nls
 make

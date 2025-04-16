@@ -1,5 +1,0 @@
-# Config file for a project
-# Placed in $SRCROOT/zcbe/conf.toml
-[package]
-name = "libuv"
-ver = "1.41.0"

@@ -10,7 +10,6 @@ sed 's/\$(WINDRES) \$(IFLAGS) --preprocessor "\$(DEPWINDRES) -E -xc-header -DRC_
 --target-os=$(echo ${ZCHOST} | sed s/.\*-//) \
 --arch=$(echo ${ZCHOST} | sed s/-.\*//) \
 --pkg-config=pkg-config \
---enable-avresample \
 --enable-libx264 \
 --enable-libx265 \
 --enable-libxvid \

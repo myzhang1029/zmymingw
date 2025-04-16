@@ -2,4 +2,9 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "libiconv"
-ver = "1.15"
+ver = "1.18"
+
+[deps]
+build = [
+"groff",
+]

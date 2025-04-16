@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "x265"
-ver = "3.4"
+ver = "git"
 
 [deps] # Dependencies
 build = [

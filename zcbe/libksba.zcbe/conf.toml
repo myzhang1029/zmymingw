@@ -1,6 +1,6 @@
 [package]
 name = "libksba"
-ver = "1.6.0"
+ver = "1.6.7"
 
 [deps]
 build = [
@@ -11,3 +11,6 @@ req = [
 "libgpg-error"
 ]
 
+
+[env]
+CC = "${ZCHOST}-gcc"

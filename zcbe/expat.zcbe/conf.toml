@@ -2,10 +2,13 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "expat"
-ver = "2.2.10"
+ver = "2.7.1"
 
 [deps]
 build = [
 "docbook2x",
 "docbook-utils"
 ]
+
+[env]
+CC = "${ZCHOST}-gcc"

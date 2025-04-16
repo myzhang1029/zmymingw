@@ -1,0 +1,12 @@
+diff --git a/Makefile.am b/Makefile.am
+index 1f70917..c02547a 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -35,7 +35,7 @@ if ENABLE_DOC
+ SUBDIRS += doc examples
+ endif
+
+-SUBDIRS += fuzz tests
++SUBDIRS += fuzz
+
+ include $(top_srcdir)/aminclude_static.am

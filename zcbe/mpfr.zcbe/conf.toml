@@ -2,9 +2,12 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "mpfr"
-ver = "4.1.0"
+ver = "4.2.2"
 
 [deps] # Dependencies
 req = [
 "gmp",
 ]
+
+[env]
+CC = "${ZCHOST}-gcc"

@@ -2,9 +2,12 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "libtasn1"
-ver = "4.12"
+ver = "4.20"
 
 [deps]
 build = [
 "gtk-doc",
 ]
+
+[env]
+CC = "${ZCHOST}-gcc"

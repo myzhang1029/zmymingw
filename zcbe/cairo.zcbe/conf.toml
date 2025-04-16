@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "cairo"
-ver = "1.17.4"
+ver = "1.18.4"
 
 [deps]
 rep = [

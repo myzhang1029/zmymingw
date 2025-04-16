@@ -1,12 +1,17 @@
 [package]
 name = "aria2"
-ver = "1.35.0"
+ver = "1.37.0"
 
 [deps]
 req = [
 "libssh2",
 "libcares",
 "gmp",
+"nettle",
+"libgcrypt",
 "expat",
 "sqlite"
 ]
+
+[env]
+CC = "${ZCHOST}-gcc"

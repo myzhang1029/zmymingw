@@ -3,3 +3,6 @@
 [package]
 name = "libintl"
 ver = "0.00"
+
+[env]
+CC = "${ZCHOST}-gcc"

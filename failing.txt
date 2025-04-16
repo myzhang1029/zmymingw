@@ -1,5 +1,4 @@
 unzip
 zip
 bison
-gdb
 gdbm

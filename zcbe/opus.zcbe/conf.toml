@@ -2,4 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "opus"
-ver = "1.1.2"
+ver = "1.5.2"
+
+[env]
+CC = "${ZCHOST}-gcc"

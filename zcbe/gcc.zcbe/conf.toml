@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "gcc"
-ver = "11.2.0"
+ver = "14.2.0"
 
 [deps] # Dependencies
 build = [
@@ -15,3 +15,6 @@ req = [
 "binutils",
 "zlib",
 ]
+
+[env]
+CC = "${ZCHOST}-gcc"

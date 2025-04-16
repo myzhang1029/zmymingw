@@ -2,8 +2,9 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "gmp"
-ver = "6.1.2"
+ver = "6.2.0"
 
 [env]
+CC = "${ZCHOST}-gcc"
 # On WSL, this has to be explicitly set to avoid confusing configure
 CC_FOR_BUILD = "gcc"

@@ -8,3 +8,6 @@ ver = "0.15.1b"
 req = [
 "zlib"
 ]
+
+[env]
+CC = "${ZCHOST}-gcc"

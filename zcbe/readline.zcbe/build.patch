@@ -1,0 +1,46 @@
+diff --git a/input.c b/input.c
+index 6f038d4..45b351c 100644
+--- a/input.c
++++ b/input.c
+@@ -140,7 +140,7 @@ win32_isatty (int fd)
+
+ /* I don't know how to set a timeout for _getch() in MinGW32, so we use
+    SIGALRM. */
+-#if (defined (HAVE_PSELECT) || defined (HAVE_SELECT)) && !defined (__MINGW32__)
++#if (defined (HAVE_PSELECT) || defined (HAVE_SELECT)) || defined (__MINGW32__)
+ #  define RL_TIMEOUT_USE_SELECT
+ #else
+ #  define RL_TIMEOUT_USE_SIGALRM
+@@ -151,7 +151,9 @@ int rl_timeout_remaining (unsigned int *, unsigned int *);
+
+ int _rl_timeout_init (void);
+ int _rl_timeout_sigalrm_handler (void);
++#if defined (_POSIXSELECT_H_) && defined (HAVE_POSIX_SIGNALS)
+ int _rl_timeout_select (int, fd_set *, fd_set *, fd_set *, const struct timeval *, const sigset_t *);
++#endif
+
+ static void _rl_timeout_handle (void);
+ #if defined (RL_TIMEOUT_USE_SIGALRM)
+@@ -818,7 +820,7 @@ rl_getc (FILE *stream)
+       /* We know at this point that _rl_caught_signal == 0 */
+
+ #if defined (__MINGW32__)
+-      if (isatty (fd)
++      if (isatty (fd))
+ 	return (_getch ());	/* "There is no error return." */
+ #endif
+       result = 0;
+diff --git a/rlprivate.h b/rlprivate.h
+index d87d07a..e1f984c 100644
+--- a/rlprivate.h
++++ b/rlprivate.h
+@@ -303,7 +303,7 @@ extern int _rl_pushed_input_available (void);
+
+ extern int _rl_timeout_init (void);
+ extern int _rl_timeout_handle_sigalrm (void);
+-#if defined (_POSIXSELECT_H_)
++#if defined (_POSIXSELECT_H_) && defined (HAVE_POSIX_SIGNALS)
+ /* use as a sentinel for fd_set, struct timeval,  and sigset_t definitions */
+ extern int _rl_timeout_select (int, fd_set *, fd_set *, fd_set *, const struct timeval *, const sigset_t *);
+ #endif
+

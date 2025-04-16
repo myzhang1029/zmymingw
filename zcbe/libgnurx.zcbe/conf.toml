@@ -3,3 +3,6 @@
 [package]
 name = "libgnurx"
 ver = "2.5.1"
+
+[env]
+CC = "${ZCHOST}-gcc"

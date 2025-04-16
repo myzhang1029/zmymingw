@@ -2,4 +2,8 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "gdbm"
-ver = "1.13"
+# last version without fork
+ver = "1.20"
+
+[env]
+CC = "${ZCHOST}-gcc"

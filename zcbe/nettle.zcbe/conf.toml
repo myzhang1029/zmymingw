@@ -2,9 +2,12 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "nettle"
-ver = "3.7.3"
+ver = "3.10.1"
 
 [deps]
 req = [
 "gmp"
 ]
+
+[env]
+CC = "${ZCHOST}-gcc"

@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "nasm"
-ver = "2.15.05"
+ver = "2.16.03"
 
 [deps]
 build = [
@@ -10,3 +10,6 @@ build = [
 "asciidoc",
 "xmlto",
 ]
+
+[env]
+CC = "${ZCHOST}-gcc"

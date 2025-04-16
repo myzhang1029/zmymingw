@@ -1,0 +1,50 @@
+diff --git a/agent/command-ssh.c b/agent/command-ssh.c
+index 189acd7f8..59b9a7756 100644
+--- a/agent/command-ssh.c
++++ b/agent/command-ssh.c
+@@ -3952,7 +3952,7 @@ start_command_handler_ssh (ctrl_t ctrl, gnupg_fd_t sock_client)
+   es_syshd_t syshd;
+
+   syshd.type = ES_SYSHD_SOCK;
+-  syshd.u.sock = sock_client;
++  syshd.u.sock = (uintptr_t) sock_client;
+
+   get_client_info (sock_client, &peer_info);
+   ctrl->client_pid = peer_info.pid;
+diff --git a/dirmngr/ks-engine-ldap.c b/dirmngr/ks-engine-ldap.c
+index 749c0de09..dc9ed4f33 100644
+--- a/dirmngr/ks-engine-ldap.c
++++ b/dirmngr/ks-engine-ldap.c
+@@ -31,6 +31,8 @@
+ #  define WINVER 0x0500  /* Same as in common/sysutils.c */
+ # endif
+ # include <winsock2.h>
++# include <winldap.h>
++# include <winber.h>
+ # include <sddl.h>
+ #endif
+
+@@ -1354,10 +1356,11 @@ search_and_parse (ctrl_t ctrl, const char *keyspec,
+                   char **attrs, LDAPMessage **r_message)
+ {
+   gpg_error_t err = 0;
+-  int l_err, l_reserr;
++  int l_err;
++  unsigned long l_reserr;
+   LDAPControl *srvctrls[2] = { NULL, NULL };
+   int count;
+-  unsigned int totalcount = 0;
++  unsigned long totalcount = 0;
+   LDAPControl *pagectrl = NULL;
+   LDAPControl **resctrls = NULL;
+
+@@ -1440,7 +1443,7 @@ search_and_parse (ctrl_t ctrl, const char *keyspec,
+       if (count >= 0)
+         ctrl->ks_get_state->total += count;
+       if (opt.verbose)
+-        log_info ("ks-ldap: received result page %u%s (%d/%u/%u)\n",
++        log_info ("ks-ldap: received result page %u%s (%d/%u/%lu)\n",
+                   ctrl->ks_get_state->pageno,
+                   ctrl->ks_get_state->more_pages? "":" (last)",
+                   count, ctrl->ks_get_state->total, totalcount);
+

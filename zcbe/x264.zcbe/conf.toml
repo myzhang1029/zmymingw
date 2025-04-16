@@ -8,3 +8,6 @@ ver = "git"
 build = [
 "nasm"
 ]
+
+[env]
+CC = "${ZCHOST}-gcc"
