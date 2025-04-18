@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "ImageMagick"
-ver = "7.1.0-8"
+ver = "7.1.1-47"
 
 [deps]
 req = [

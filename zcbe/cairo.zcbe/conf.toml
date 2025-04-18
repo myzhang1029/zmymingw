@@ -5,6 +5,10 @@ name = "cairo"
 ver = "1.18.4"
 
 [deps]
+build = [
+"meson",
+"ninja",
+]
 rep = [
 "fontconfig",
 "freetype",

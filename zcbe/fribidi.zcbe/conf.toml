@@ -2,7 +2,13 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "fribidi"
-ver = "1.0.4"
+ver = "1.0.16"
+
+[deps]
+build = [
+"meson",
+"ninja",
+]
 
 [env]
 CC = "${ZCHOST}-gcc"

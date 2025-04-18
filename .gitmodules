@@ -127,9 +127,6 @@
 [submodule "devel/nasm"]
 	path = devel/nasm
 	url = https://github.com/netwide-assembler/nasm.git
-[submodule "libraries/libunistring"]
-	path = libraries/libunistring
-	url = https://git.savannah.gnu.org/git/libunistring.git
 [submodule "libraries/libgit2"]
 	path = libraries/libgit2
 	url = https://github.com/libgit2/libgit2.git
@@ -178,9 +175,6 @@
 [submodule "libraries/pdcurses"]
 	path = libraries/pdcurses
 	url = https://github.com/wmcbrine/PDCurses.git
-[submodule "libraries/lua-compat-5.3"]
-	path = libraries/lua-compat-5.3
-	url = https://github.com/keplerproject/lua-compat-5.3.git
 [submodule "archival/bzip2"]
 	path = archival/bzip2
 	url = https://sourceware.org/git/bzip2.git
@@ -264,3 +258,9 @@
 [submodule "libraries/p11-kit"]
 	path = libraries/p11-kit
 	url = https://github.com/p11-glue/p11-kit.git
+[submodule "user/file"]
+	path = user/file
+	url = https://github.com/file/file
+[submodule "libraries/fribidi"]
+	path = libraries/fribidi
+	url = https://github.com/fribidi/fribidi.git

@@ -10,11 +10,21 @@ sed 's/\$(WINDRES) \$(IFLAGS) --preprocessor "\$(DEPWINDRES) -E -xc-header -DRC_
 --target-os=$(echo ${ZCHOST} | sed s/.\*-//) \
 --arch=$(echo ${ZCHOST} | sed s/-.\*//) \
 --pkg-config=pkg-config \
+--enable-ffplay \
+--enable-gpl \
+--enable-nonfree \
+--enable-libfontconfig \
+--enable-libfreetype \
+--enable-libmp3lame \
+--enable-libopus \
+--enable-libtls \
+--enable-libvorbis \
+--enable-libwebp \
 --enable-libx264 \
 --enable-libx265 \
+--enable-libxml2 \
 --enable-libxvid \
---enable-libmp3lame \
---enable-gpl \
+--enable-lzma \
 --enable-shared \
 --enable-static \
 --disable-htmlpages \

@@ -6,5 +6,5 @@ ver = "3.0"
 
 [deps]
 req = [
-"zlib"
+"zlib",
 ]

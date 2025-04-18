@@ -1,9 +1,11 @@
 #!/bin/sh
 
-git submodule update --init 3rdparty/catch
-./autogen.sh
-CPPFLAGS=-I${ZCPREF}/include LDFLAGS=-L${ZCPREF}/lib ./configure --prefix=${ZCPREF} --host=${ZCHOST} --build="$(${ZCTOP}/zcbe/config.guess)"
-make
-make install
-make distclean
+git submodule update --init
+"${ZCTOP}"/zcbe/gen_toolchainfile.sh
+ninja="$("${ZCTOP}"/zcbe/checkninja.sh)"
+
+cmake -DCMAKE_TOOLCHAIN_FILE="${ZCTOP}"/toolchain.cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX="${ZCPREF}" -DBUILD_SHARED_LIBS=ON -G "${ninja}" -S . -B build
+cmake --build build
+cmake --install build
+rm -rf build
 exit 0

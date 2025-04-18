@@ -1,0 +1,54 @@
+diff --git a/archival/zip30/win32/makefile.gcc b/archival/zip30/win32/makefile.gcc
+index d28c4476..3faaed33 100644
+--- a/win32/makefile.gcc
++++ b/win32/makefile.gcc
+@@ -33,7 +33,7 @@ ASFLAGS=-c $(ASDEFS) $(LOC)
+ RC=windres
+ 
+ LD=$(CC)
+-LDFLAGS=-o$@ -s
++LDFLAGS=-o$@ -s $(LOC_LD)
+ ifndef USEZLIB
+ LIBS=-luser32 -ladvapi32
+ else
+@@ -150,10 +150,10 @@ zipcloak.exe: $(OBJC)
+ 	$(LD) $(LDFLAGS) $(OBJC) $(LIBS)
+ 
+ zipnote.exe: $(OBJN)
+-	$(LD) $(LDFLAGS) $(OBJN)
++	$(LD) $(LDFLAGS) $(OBJN) $(LIBS)
+ 
+ zipsplit.exe: $(OBJS)
+-	$(LD) $(LDFLAGS) $(OBJS)
++	$(LD) $(LDFLAGS) $(OBJS) $(LIBS)
+ 
+ clean:
+ 	rm -f *.o $(ZIPS)
+diff --git a/archival/zip30/win32/osdep.h b/archival/zip30/win32/osdep.h
+index eaf65070..67cebda8 100644
+--- a/win32/osdep.h
++++ b/win32/osdep.h
+@@ -438,23 +438,8 @@
+ #endif
+ 
+ #ifdef _MBCS
+-#  if (!defined(__EMX__) && !defined(__MINGW32__) && !defined(__CYGWIN__))
+ #    include <stdlib.h>
+ #    include <mbstring.h>
+-#  endif
+-#  if (defined(__MINGW32__) && !defined(MB_CUR_MAX))
+-#    ifdef __MSVCRT__
+-       IZ_IMP extern int *__p___mb_cur_max(void);
+-#      define MB_CUR_MAX (*__p___mb_cur_max())
+-#    else
+-       IZ_IMP extern int *_imp____mb_cur_max_dll;
+-#      define MB_CUR_MAX (*_imp____mb_cur_max_dll)
+-#    endif
+-#  endif
+-#  if (defined(__LCC__) && !defined(MB_CUR_MAX))
+-     IZ_IMP extern int *_imp____mb_cur_max;
+-#    define MB_CUR_MAX (*_imp____mb_cur_max)
+-#  endif
+ #endif
+ 
+ #ifdef __LCC__

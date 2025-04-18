@@ -6,5 +6,5 @@ ver = "0.21.5"
 
 [deps]
 req = [
-"libunistring",
+#"libunistring",
 ]

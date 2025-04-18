@@ -1,5 +1,6 @@
 #!/bin/sh
 
+patch -u < "${ZCTOP}/zcbe/unzip.zcbe/build.patch"
 if sed --version > /dev/null 2>&1
 then
     # GNU sed takes -i without an argument
@@ -21,4 +22,5 @@ make -B -f ${ZCTOP}/zcbe/unzip.zcbe/Makefile.install prefix=${ZCPREF}
 make -f win32/Makefile.gcc clean
 cd -
 rm -rf $dir
+patch -R -u < "${ZCTOP}/zcbe/unzip.zcbe/build.patch"
 exit 0

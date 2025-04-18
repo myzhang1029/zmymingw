@@ -4,8 +4,9 @@ sed 's,\t./fbc,\tbc,' bc/Makefile.am.bak > bc/Makefile.am
 mv bc/execute.c bc/execute.c.bak
 sed 's/random()/rand()/' bc/execute.c.bak > bc/execute.c
 autoreconf -i
+
 LDFLAGS=-lgcc ./configure --host=${ZCHOST} --build="$(${ZCTOP}/zcbe/config.guess)" --prefix=${ZCPREF}
-make HOST_LINK=gcc
+PATH="$dir/bin:$PATH" make HOST_LINK=gcc
 make install
 make distclean
 mv bc/execute.c.bak bc/execute.c

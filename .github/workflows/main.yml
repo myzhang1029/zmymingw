@@ -28,7 +28,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       # Install dependencies, python, ZCBE, mingw and others
       - name: Install dependencies
@@ -39,7 +39,7 @@ jobs:
           gettext texinfo pkg-config texi2html groff asciidoc xmlto python3 python3-pip \
           perl imagemagick meson ninja-build bison flex gfortran-mingw-w64 gperf \
           docbook-utils help2man ed autoconf-archive fig2dev lua5.1 lua-mpack lua-bitop \
-          libtool-bin ccache
+          libtool-bin ccache castxml
           python3 -m pip install zcbe==v0.5.0
 
       - name: Check out submodules
@@ -54,7 +54,7 @@ jobs:
         run: sh set_up_ghaction.sh
 
       - name: Ccache
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: /home/runner/.ccache
           key: ccache:${{ matrix.host_trip}}:${{ github.ref }}:${{ github.sha }}

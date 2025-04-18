@@ -6,6 +6,8 @@ ver = "0.25.5"
 
 [deps]
 build = [
+"meson",
+"ninja",
 "castxml",
 ]
 req = [

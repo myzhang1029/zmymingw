@@ -6,9 +6,17 @@ ver = "4.4"
 
 [deps] # Dependencies
 req = [
+"fontconfig",
+"freetype",
 "lame",
+"libressl",
+"libxml2",
+"libwebp",
+"opus",
+"sdl2",
+"vorbis",
 "x264",
 "x265",
 "xvid",
-"sdl2",
+"xz",
 ]
