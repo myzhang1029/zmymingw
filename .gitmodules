@@ -264,3 +264,6 @@
 [submodule "libraries/fribidi"]
 	path = libraries/fribidi
 	url = https://github.com/fribidi/fribidi.git
+[submodule "libraries/giflib"]
+	path = libraries/giflib
+	url = https://git.code.sf.net/p/giflib/code

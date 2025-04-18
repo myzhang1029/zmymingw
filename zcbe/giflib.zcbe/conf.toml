@@ -2,4 +2,4 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "giflib"
-ver = "5.2.1"
+ver = "5.2.2"
