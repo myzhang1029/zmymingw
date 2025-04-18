@@ -1,5 +1,6 @@
 #!/bin/sh
 
+patch -p1 < "${ZCTOP}/zcbe/opusfile.zcbe/openssl.patch"
 ./autogen.sh
 # Include DEPS_* because we're using git's opus
 DEPS_CFLAGS="-I${ZCPREF}/include -I${ZCPREF}/include/opus" DEPS_LIBS="-L${ZCPREF}/lib -lopus -logg" ./configure --host=${ZCHOST} --build="$(${ZCTOP}/zcbe/config.guess)" --prefix=${ZCPREF} --enable-static --enable-shared
@@ -15,4 +16,5 @@ fi
 make
 make install
 make distclean
+patch -R -p1 < "${ZCTOP}/zcbe/opusfile.zcbe/openssl.patch"
 exit 0
