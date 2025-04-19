@@ -1,6 +1,5 @@
 #!/bin/sh
 patch -u < "${ZCTOP}/zcbe/libffi.zcbe/build.patch"
-EOF
 ./autogen.sh
 ./configure --host=${ZCHOST} --build="$(${ZCTOP}/zcbe/config.guess)" --prefix=${ZCPREF}
 make

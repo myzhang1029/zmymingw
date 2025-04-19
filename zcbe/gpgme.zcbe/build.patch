@@ -1,7 +1,31 @@
 diff --git a/src/assuan-support.c b/src/assuan-support.c
-index c6052194..8a4bd6dd 100644
+index c6052194..f36a759d 100644
 --- a/src/assuan-support.c
 +++ b/src/assuan-support.c
+@@ -126,19 +126,19 @@ my_close (assuan_context_t ctx, assuan_fd_t fd)
+ }
+ 
+ 
+-static gpgme_ssize_t
++static ssize_t
+ my_read (assuan_context_t ctx, assuan_fd_t fd, void *buffer, size_t size)
+ {
+   (void)ctx;
+-  return _gpgme_io_read ((int) fd, buffer, size);
++  return (ssize_t) _gpgme_io_read ((int) fd, buffer, size);
+ }
+ 
+ 
+-static gpgme_ssize_t
++static ssize_t
+ my_write (assuan_context_t ctx, assuan_fd_t fd, const void *buffer, size_t size)
+ {
+   (void)ctx;
+-  return _gpgme_io_write ((int) fd, buffer, size);
++  return (ssize_t) _gpgme_io_write ((int) fd, buffer, size);
+ }
+ 
+ 
 @@ -181,7 +181,7 @@ my_sendmsg (assuan_context_t ctx, assuan_fd_t fd, const assuan_msghdr_t msg,
     to reflect the value of the FD in the peer process (on
     Windows).  */
@@ -11,6 +35,15 @@ index c6052194..8a4bd6dd 100644
  	  const char **argv,
  	  assuan_fd_t fd_in, assuan_fd_t fd_out,
  	  assuan_fd_t *fd_child_list,
+@@ -288,7 +288,7 @@ my_spawn (assuan_context_t ctx, pid_t *r_pid, const char *name,
+     {
+       err = _gpgme_io_spawn (name, (char*const*)argv,
+                              (IOSPAWN_FLAG_NOCLOSE | IOSPAWN_FLAG_DETACHED),
+-                             fd_items, atfork, atforkvalue, r_pid);
++                             fd_items, atfork, atforkvalue, (pid_t*)r_pid);
+     }
+   if (!err)
+     {
 @@ -309,8 +309,8 @@ my_spawn (assuan_context_t ctx, pid_t *r_pid, const char *name,
  
  
@@ -60,3 +93,25 @@ index 03ad1fbf..76befda6 100644
                if (!func)
                  FreeLibrary (handle);
              }
+diff --git a/tests/gpg/t-encrypt-large.c b/tests/gpg/t-encrypt-large.c
+index fd389de7..d4dd32b7 100644
+--- a/tests/gpg/t-encrypt-large.c
++++ b/tests/gpg/t-encrypt-large.c
+@@ -42,7 +42,7 @@ struct cb_parms
+ 
+ 
+ /* The read callback used by GPGME to read data. */
+-static ssize_t
++static gpgme_ssize_t
+ read_cb (void *handle, void *buffer, size_t size)
+ {
+   struct cb_parms *parms = handle;
+@@ -55,7 +55,7 @@ read_cb (void *handle, void *buffer, size_t size)
+ }
+ 
+ /* The write callback used by GPGME to write data. */
+-static ssize_t
++static gpgme_ssize_t
+ write_cb (void *handle, const void *buffer, size_t size)
+ {
+   struct cb_parms *parms = handle;

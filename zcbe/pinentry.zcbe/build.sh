@@ -8,6 +8,9 @@ echo "#undef HAVE_NCURSESW" >> config.h
 make
 make install
 make distclean
-cp "${ZCPREF}"/bin/pinentry-w32.exe "${ZCPREF}"/bin/pinentry.exe
+if [ -L "${ZCPREF}"/bin/pinentry.exe ]; then
+    rm -f "${ZCPREF}"/bin/pinentry.exe
+    cp -l "${ZCPREF}"/bin/pinentry-w32.exe "${ZCPREF}"/bin/pinentry.exe
+fi
 mv pinentry/Makefile.am.bak pinentry/Makefile.am
 exit 0

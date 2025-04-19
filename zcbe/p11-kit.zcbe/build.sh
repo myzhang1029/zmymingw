@@ -8,11 +8,9 @@ else
     sed -i "" "s,/usr/bin/python,$(which python)," subprojects/pkcs11-json/gen.py
 fi
 git submodule update --init
-mkdir -p build
-cd build
+#!/bin/sh
 "${ZCTOP}/zcbe/gen_mesoncrossfile.sh"
-PKG_CONFIG=$(which pkg-config) CMAKE=$(which cmake) meson setup . .. --cross-file "${ZCTOP}/mesoncross.txt"
-ninja install
-cd ..
-rm -rf build
+PKG_CONFIG=$(which pkg-config) CMAKE=$(which cmake) meson setup zcbe_build . --cross-file "${ZCPREF}/tmp/mesoncross.txt"
+ninja -C zcbe_build install
+rm -rf zcbe_build
 exit 0

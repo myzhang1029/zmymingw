@@ -1,8 +1,5 @@
 #!/bin/sh
 
-"${ZCTOP}"/zcbe/gen_toolchainfile.sh
-ninja="$("${ZCTOP}"/zcbe/checkninja.sh)"
-
 if sed --version > /dev/null 2>&1
 then
     # GNU sed takes -i without an argument
@@ -11,9 +8,6 @@ else
     # BSD sed's -i needs a postfix
     sed -i "" "s/ dlltool / ${ZCHOST}-dlltool /" deps/winhttp/CMakeLists.txt
 fi
-
-mkdir build || true
-cd build
 
 # Create a dummy library for CMake to "resolve"
 g()
@@ -25,15 +19,12 @@ g()
     return 1
 }
 cp "$(g libws2_32.a)" "${ZCPREF}/lib"
-LDFLAGS="-L${ZCPREF}/lib -lssl" cmake .. -DCMAKE_TOOLCHAIN_FILE="${ZCTOP}"/toolchain.cmake -DCMAKE_INSTALL_PREFIX="${ZCPREF}" -G "${ninja}"
-if [ "${ninja}" = "Ninja" ];
-then
-    ninja
-    ninja install
-else
-    make
-    make install
-fi
-cd ..
-rm -rf build
+
+"${ZCTOP}"/zcbe/gen_toolchainfile.sh
+ninja="$("${ZCTOP}"/zcbe/checkninja.sh)"
+LDFLAGS="-L${ZCPREF}/lib -lssl" cmake -DCMAKE_TOOLCHAIN_FILE="${ZCPREF}"/tmp/toolchain.cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX="${ZCPREF}" -DBUILD_SHARED_LIBS=ON -G "${ninja}" -DCMAKE_C_FLAGS_INIT=-w -S . -B zcbe_build
+cmake --build zcbe_build
+cmake --install zcbe_build
+rm -rf zcbe_build
+
 exit 0

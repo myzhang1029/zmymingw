@@ -1,15 +1,11 @@
 # Config file for a project
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
-name = "libsndfile"
-ver = "1.2.2"
+name = "ninja"
+ver = "1.12.1"
 
 [deps]
 build = [
+"ninja",
 "python",
-]
-req = [
-"flac",
-"libogg",
-"vorbis",
 ]

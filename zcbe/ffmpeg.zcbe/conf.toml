@@ -8,6 +8,7 @@ ver = "4.4"
 req = [
 "fontconfig",
 "freetype",
+"frei0r",
 "lame",
 "libressl",
 "libxml2",

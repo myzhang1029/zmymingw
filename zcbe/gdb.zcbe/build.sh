@@ -6,10 +6,10 @@ sed 's/m4_define(\[_GCC_AUTOCONF_VERSION\], \[[0-9]*\.[0-9]*\])/m4_define([_GCC_
 autoreconf -fi
 mkdir -p build
 cd build
-LDFLAGS="-L${ZCPREF}/lib" LIBS=-ltermcap CFLAGS="-I${ZCPREF}/include" \
+LDFLAGS="-L${ZCPREF}/lib" LIBS=-ltermcap \
     ../configure --host="${ZCHOST}" --build="$(${ZCTOP}/zcbe/config.guess)" --prefix="${ZCPREF}" --with-gmp="${ZCPREF}" --with-mpfr="${ZCPREF}" --with-mpc="${ZCPREF}"
 # gdb/utils.c contains a false assumption about readline.h
-LDFLAGS="-L${ZCPREF}/lib" LIBS=-ltermcap CFLAGS="-I${ZCPREF}/include" \
+LDFLAGS="-L${ZCPREF}/lib" LIBS=-ltermcap \
     make configure-gdb
 echo "extern \"C\" { extern int tgetnum (const char *name); }" >> gdb/config.h
 # actually make things

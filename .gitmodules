@@ -267,3 +267,9 @@
 [submodule "libraries/giflib"]
 	path = libraries/giflib
 	url = https://git.code.sf.net/p/giflib/code
+[submodule "libraries/frei0r"]
+	path = libraries/frei0r
+	url = https://github.com/dyne/frei0r.git
+[submodule "devel/ninja"]
+	path = devel/ninja
+	url = https://github.com/ninja-build/ninja.git

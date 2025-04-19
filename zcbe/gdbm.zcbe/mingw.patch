@@ -6,7 +6,7 @@ index a15b2fd..b3f1e95 100644
  int
  _gdbm_file_extend (GDBM_FILE dbf, off_t size)
  {
-+#ifdef __MINGW64__
++#ifdef _WIN32
 +  size_t page_size = 4096;
 +#else
    size_t page_size = sysconf (_SC_PAGESIZE);
@@ -22,7 +22,7 @@ index 41cb820..2f7fbe3 100644
  # include "gdbm.h"
  # include "gdbmapp.h"
  # include "gdbmdefs.h"
-+#ifndef __MINGW64__
++#ifndef _WIN32
  # include <pwd.h>
  # include <grp.h>
 +#endif
@@ -32,7 +32,7 @@ index 41cb820..2f7fbe3 100644
  int no_meta_option;
  
  int mode;
-+#ifndef __MINGW64__
++#ifndef _WIN32
  uid_t owner_uid;
  gid_t owner_gid;
 +#endif
@@ -43,7 +43,7 @@ index 41cb820..2f7fbe3 100644
  static int
  set_meta_info (GDBM_FILE dbf)
  {
-+#ifndef __MINGW64__
++#ifndef _WIN32
    if (meta_mask)
      {
        int fd = gdbm_fdesc (dbf);
@@ -59,7 +59,7 @@ index 41cb820..2f7fbe3 100644
  	}
  	break;
  
-+#ifndef __MINGW64__
++#ifndef _WIN32
        case 'u':
  	{
  	  size_t len;
@@ -79,7 +79,7 @@ index 9456e8f..b4c2d88 100644
  # include "autoconf.h"
  # include "gdbmdefs.h"
  # include "gdbm.h"
-+#ifndef __MINGW64__
++#ifndef _WIN32
  # include <pwd.h>
  # include <grp.h>
 +#endif
@@ -90,7 +90,7 @@ index 9456e8f..b4c2d88 100644
    time_t t;
    int fd;
    struct stat st;
-+#ifndef __MINGW64__
++#ifndef _WIN32
    struct passwd *pw;
    struct group *gr;
 +#endif
@@ -101,13 +101,13 @@ index 9456e8f..b4c2d88 100644
  
    fprintf (fp, "#:file=%s\n", dbf->name);
    fprintf (fp, "#:uid=%lu,", (unsigned long) st.st_uid);
-+#ifndef __MINGW64__
++#ifndef _WIN32
    pw = getpwuid (st.st_uid);
    if (pw)
      fprintf (fp, "user=%s,", pw->pw_name);
 +#endif
    fprintf (fp, "gid=%lu,", (unsigned long) st.st_gid);
-+#ifndef __MINGW64__
++#ifndef _WIN32
    gr = getgrgid (st.st_gid);
    if (gr)
      fprintf (fp, "group=%s,", gr->gr_name);
@@ -123,7 +123,7 @@ index d297a35..ac03fa0 100644
  
  /* Include system configuration before all else. */
  # include "autoconf.h"
-+#ifdef __MINGW64__
++#ifdef _WIN32
 +# include <winsock2.h>
 +#else
  # include <arpa/inet.h>
@@ -139,7 +139,7 @@ index 5ca8e81..ce36fc1 100644
     along with GDBM. If not, see <http://www.gnu.org/licenses/>.   */
  
  # include "autoconf.h"
-+#ifdef __MINGW64__
++#ifdef _WIN32
 +# include <winsock2.h>
 +#else
  # include <arpa/inet.h>
@@ -155,7 +155,7 @@ index 29dc19c..23ca69f 100644
  # include "gdbmdefs.h"
  # include "gdbm.h"
  # include <sys/types.h>
-+#ifndef __MINGW64__
++#ifndef _WIN32
  # include <pwd.h>
  # include <grp.h>
 +#endif
@@ -166,7 +166,7 @@ index 29dc19c..23ca69f 100644
  _set_gdbm_meta_info (GDBM_FILE dbf, char *param, int meta_mask)
  {
    unsigned long n;
-+#ifndef __MINGW64__
++#ifndef _WIN32
    uid_t owner_uid;
    uid_t owner_gid;
 +#endif
@@ -175,7 +175,7 @@ index 29dc19c..23ca69f 100644
    const char *p;
    char *end;
  
-+#ifndef __MINGW64__
++#ifndef _WIN32
    if (!(meta_mask & GDBM_META_MASK_OWNER))
      {
        p = getparm (param, "user");
@@ -191,7 +191,7 @@ index 29dc19c..23ca69f 100644
  	}
      }
    
-+#ifndef __MINGW64__
++#ifndef _WIN32
    if (meta_flags)
      {
        int fd = gdbm_fdesc (dbf);
@@ -224,7 +224,7 @@ index 7fbecc0..3b49e9e 100644
  #include <errno.h>
  #include <ctype.h>
  #include <signal.h>
-+#ifndef __MINGW64__
++#ifndef _WIN32
  #include <pwd.h>
  #include <sys/ioctl.h>
  #include <termios.h>
@@ -236,7 +236,7 @@ index 7fbecc0..3b49e9e 100644
      {
        char *fname;
        char *p = getenv ("HOME");
-+#ifndef __MINGW64__
++#ifndef _WIN32
        if (!p)
  	{
  	  struct passwd *pw = getpwuid (getuid ());
@@ -245,7 +245,7 @@ index 7fbecc0..3b49e9e 100644
 +#endif
  	      terror (_("cannot find home directory"));
  	      return;
-+#ifndef __MINGW64__
++#ifndef _WIN32
  	    }
  	  p = pw->pw_dir;
  	}
@@ -257,7 +257,7 @@ index 7fbecc0..3b49e9e 100644
  	}
      }
  
-+#ifndef __MINGW64__
++#ifndef _WIN32
    signal (SIGPIPE, SIG_IGN);
 +#endif
  
@@ -430,7 +430,7 @@ index aa56dc4..b6d031c 100644
     along with GDBM. If not, see <http://www.gnu.org/licenses/>.    */
  
  #include "gdbmtool.h"
-+#ifndef __MINGW64__
++#ifndef _WIN32
  #include <pwd.h>
 +#endif
  
@@ -440,7 +440,7 @@ index aa56dc4..b6d031c 100644
      {
        char *p = s + 1;
        size_t len = strcspn (p, "/");
-+#ifndef __MINGW64__
++#ifndef _WIN32
        struct passwd *pw;
  
        if (len == 0)

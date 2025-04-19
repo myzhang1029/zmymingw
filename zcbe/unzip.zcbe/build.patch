@@ -1,7 +1,7 @@
 diff --git a/archival/unzip60/win32/nt.c b/archival/unzip60/win32/nt.c
 index a6cf8590..3432134c 100644
---- a/archival/unzip60/win32/nt.c
-+++ b/archival/unzip60/win32/nt.c
+--- a/win32/nt.c
++++ b/win32/nt.c
 @@ -37,8 +37,8 @@
  
  #define WIN32_LEAN_AND_MEAN
@@ -14,8 +14,8 @@ index a6cf8590..3432134c 100644
  #endif
 diff --git a/archival/unzip60/win32/win32.c b/archival/unzip60/win32/win32.c
 index 410207f4..48ca4d5a 100644
---- a/archival/unzip60/win32/win32.c
-+++ b/archival/unzip60/win32/win32.c
+--- a/win32/win32.c
++++ b/win32/win32.c
 @@ -54,8 +54,8 @@
  
  

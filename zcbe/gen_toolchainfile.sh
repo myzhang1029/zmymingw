@@ -1,6 +1,7 @@
 #!/bin/sh
 
-cat > "${ZCTOP}/toolchain.cmake" << EOF
+mkdir -p "${ZCPREF}/tmp"
+cat > "${ZCPREF}/tmp/toolchain.cmake" << EOF
 set(CMAKE_BUILD_TYPE Release)
 
 set(CMAKE_CROSSCOMPILING True)

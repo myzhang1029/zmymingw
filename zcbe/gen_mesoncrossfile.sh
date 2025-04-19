@@ -6,7 +6,8 @@ else
     cpufamily="x86"
 fi
 
-cat > "${ZCTOP}/mesoncross.txt" << EOF
+mkdir -p "${ZCPREF}/tmp"
+cat > "${ZCPREF}/tmp/mesoncross.txt" << EOF
 [binaries]
 exe_wrapper = 'wine' # A command used to run generated executables.
 c = '${ZCHOST}-gcc'
@@ -17,7 +18,7 @@ strip = '${ZCHOST}-strip'
 objcopy = '${ZCHOST}-objcopy'
 ld = '${ZCHOST}-ld'
 
-[paths]
+[built-in options]
 prefix = '${ZCPREF}'
 
 [properties]
