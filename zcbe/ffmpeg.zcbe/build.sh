@@ -5,9 +5,9 @@ sed -i.zcbak 's/\$(WINDRES) \$(IFLAGS) --preprocessor "\$(DEPWINDRES) -E -xc-hea
 ./configure \
 --enable-cross-compile \
 --cross-prefix=${ZCHOST}- \
---prefix=${ZCPREF} \
---target-os=$(echo ${ZCHOST} | sed s/.\*-//) \
---arch=$(echo ${ZCHOST} | sed s/-.\*//) \
+--prefix="${ZCPREF}" \
+--target-os="$(echo "${ZCHOST}" | sed s/.\*-//)" \
+--arch="$(echo "${ZCHOST}" | sed s/-.\*//)" \
 --pkg-config=pkg-config \
 --enable-ffplay \
 --enable-gpl \

@@ -6,7 +6,7 @@ sed -i.zcbak "s/^getopt$/getopt-gnu/" bootstrap.conf
 patch -u < "${ZCTOP}/zcbe/diffutils.zcbe/build.patch"
 
 ./bootstrap --gnulib-srcdir="${ZCTOP}"/libraries/gnulib --no-git
-LIBS=-lbcrypt ./configure --host=${ZCHOST} --build="$(${ZCTOP}/zcbe/config.guess)" --prefix=${ZCPREF} --without-doc
+LIBS=-lbcrypt ./configure --host="${ZCHOST}" --build="$("${ZCTOP}"/zcbe/config.guess)" --prefix="${ZCPREF}" --without-doc
 make || touch man/cmp.1 man/diff.1 man/diff3.1 man/sdiff.1 && make
 make install
 make distclean

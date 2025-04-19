@@ -14,7 +14,7 @@
 echo "#include <windef.h>" > include/Windef.h
 
 CFLAGS="-DFLT_EPSILON=__FLT_EPSILON__ -DDBL_EPSILON=__DBL_EPSILON__ -DLDBL_EPSILON=__LDBL_EPSILON__" \
-    ./configure --prefix=${ZCPREF} --host=${ZCHOST} --build="$(${ZCTOP}/zcbe/config.guess)" --enable-static --without-libiconv-prefix
+    ./configure --prefix="${ZCPREF}" --host="${ZCHOST}" --build="$("${ZCTOP}"/zcbe/config.guess)" --enable-static --without-libiconv-prefix
 # if the condition below is true, then include/Windef.h is generated on a case-insensitive system, so we help it find the correct one
 [ -f include/windef.h ] && echo "#include_next <windef.h>" > include/Windef.h
 # Enable lame_init_old or symbol export fails

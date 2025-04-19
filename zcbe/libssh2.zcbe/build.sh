@@ -2,7 +2,7 @@
 
 sed -i.zcbak 's/m4_undefine(\[backend\])/#m4_undefine([backend])/' configure.ac
 autoreconf -fi
-./configure --host="${ZCHOST}" --build="$(${ZCTOP}/zcbe/config.guess)" --prefix="${ZCPREF}" --enable-static --enable-shared
+./configure --host="${ZCHOST}" --build="$("${ZCTOP}"/zcbe/config.guess)" --prefix="${ZCPREF}" --enable-static --enable-shared
 make
 make install
 make distclean

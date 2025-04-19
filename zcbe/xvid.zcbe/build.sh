@@ -1,7 +1,7 @@
 #!/bin/sh
 cd build/generic
 autoreconf -i
-./configure --prefix=${ZCPREF} --host=${ZCHOST} --build="$(${ZCTOP}/zcbe/config.guess)"
+./configure --prefix="${ZCPREF}" --host="${ZCHOST}" --build="$("${ZCTOP}"/zcbe/config.guess)"
 sed -i.zcbak "s/-mno-cygwin//" platform.inc
 rm -f platform.inc.zcbak
 make

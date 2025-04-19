@@ -6,7 +6,7 @@ autoreconf -fi
 mkdir -p build
 cd build
 LDFLAGS="-L${ZCPREF}/lib" LIBS=-ltermcap \
-    ../configure --host="${ZCHOST}" --build="$(${ZCTOP}/zcbe/config.guess)" --prefix="${ZCPREF}" --with-gmp="${ZCPREF}" --with-mpfr="${ZCPREF}" --with-mpc="${ZCPREF}"
+    ../configure --host="${ZCHOST}" --build="$("${ZCTOP}"/zcbe/config.guess)" --prefix="${ZCPREF}" --with-gmp="${ZCPREF}" --with-mpfr="${ZCPREF}" --with-mpc="${ZCPREF}"
 # gdb/utils.c contains a false assumption about readline.h
 LDFLAGS="-L${ZCPREF}/lib" LIBS=-ltermcap \
     make configure-gdb

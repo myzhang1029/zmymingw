@@ -1,5 +1,5 @@
 #!/bin/sh
-./configure --prefix=${ZCPREF} CXX=${ZCHOST}-g++
+./configure --prefix="${ZCPREF}" CXX=${ZCHOST}-g++
 make progname=lzip.exe
 make install-bin progname=lzip.exe
 make install-man
