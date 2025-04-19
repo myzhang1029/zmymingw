@@ -18,8 +18,7 @@ CFLAGS="-DFLT_EPSILON=__FLT_EPSILON__ -DDBL_EPSILON=__DBL_EPSILON__ -DLDBL_EPSIL
 # if the condition below is true, then include/Windef.h is generated on a case-insensitive system, so we help it find the correct one
 [ -f include/windef.h ] && echo "#include_next <windef.h>" > include/Windef.h
 # Enable lame_init_old or symbol export fails
-mv include/lame.h include/lame.h.bak
-sed 's/DEPRECATED_OR_OBSOLETE_CODE_REMOVED 1/DEPRECATED_OR_OBSOLETE_CODE_REMOVED 0/' include/lame.h.bak > include/lame.h
+sed -i.zcbak 's/DEPRECATED_OR_OBSOLETE_CODE_REMOVED 1/DEPRECATED_OR_OBSOLETE_CODE_REMOVED 0/' include/lame.h
 make
 make install
 cd Dll
@@ -30,6 +29,6 @@ make -f Makefile.mingw32 clean
 rm liblame_enc.a
 cd ..
 make distclean
-mv include/lame.h.bak include/lame.h
+mv include/lame.h.zcbak include/lame.h
 rm -f include/Windef.h
 exit 0

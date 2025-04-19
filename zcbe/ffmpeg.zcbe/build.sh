@@ -1,8 +1,7 @@
 #!/bin/sh
 
-mv ffbuild/common.mak ffbuild/common.mak.bak
 # fix at rdp/ffmpeg-windows-build-helpers #558
-sed 's/\$(WINDRES) \$(IFLAGS) --preprocessor "\$(DEPWINDRES) -E -xc-header -DRC_INVOKED \$(CC_DEPFLAGS)" -o \$@ \$</$(WINDRES) \$(IFLAGS) -o \$@ \$</' ffbuild/common.mak.bak > ffbuild/common.mak
+sed -i.zcbak 's/\$(WINDRES) \$(IFLAGS) --preprocessor "\$(DEPWINDRES) -E -xc-header -DRC_INVOKED \$(CC_DEPFLAGS)" -o \$@ \$</$(WINDRES) \$(IFLAGS) -o \$@ \$</' ffbuild/common.mak
 ./configure \
 --enable-cross-compile \
 --cross-prefix=${ZCHOST}- \
@@ -36,5 +35,5 @@ sed 's/\$(WINDRES) \$(IFLAGS) --preprocessor "\$(DEPWINDRES) -E -xc-header -DRC_
 make
 make install
 make distclean
-mv ffbuild/common.mak.bak ffbuild/common.mak
+mv ffbuild/common.mak.zcbak ffbuild/common.mak
 exit 0

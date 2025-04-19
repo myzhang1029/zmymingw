@@ -1,14 +1,7 @@
 #!/bin/sh
-if sed --version > /dev/null 2>&1
-then
-    # GNU sed takes -i without an argument
-    sed -i "s/AC_PREREQ\(.*\)/AC_PREREQ([${AC_MINVER}])/" configure.ac
-    sed -i "s/^getopt$/getopt-gnu/" bootstrap.conf
-else
-    # BSD sed's -i needs a postfix
-    sed -i "" "s/AC_PREREQ\(.*\)/AC_PREREQ([${AC_MINVER}])/" configure.ac
-    sed -i "" "s/^getopt$/getopt-gnu/" bootstrap.conf
-fi
+
+sed -i.zcbak "s/AC_PREREQ\(.*\)/AC_PREREQ([${AC_MINVER}])/" configure.ac
+sed -i.zcbak "s/^getopt$/getopt-gnu/" bootstrap.conf
 
 patch -u < "${ZCTOP}/zcbe/diffutils.zcbe/build.patch"
 
@@ -19,4 +12,7 @@ make install
 make distclean
 
 patch -R -u < "${ZCTOP}/zcbe/diffutils.zcbe/build.patch"
+mv bootstrap.conf.zcbak bootstrap.conf
+mv configure.ac.zcbak configure.ac
+
 exit 0

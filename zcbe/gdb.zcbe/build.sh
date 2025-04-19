@@ -1,8 +1,7 @@
 #!/bin/sh
 
-mv config/override.m4 config/override.m4.bak
 AC_VERSION="$(LC_ALL=C autoconf --version|head -n1|rev|cut -d\  -f1|rev)"
-sed 's/m4_define(\[_GCC_AUTOCONF_VERSION\], \[[0-9]*\.[0-9]*\])/m4_define([_GCC_AUTOCONF_VERSION], ['"$AC_VERSION])/" config/override.m4.bak > config/override.m4
+sed -i.zcbak 's/m4_define(\[_GCC_AUTOCONF_VERSION\], \[[0-9]*\.[0-9]*\])/m4_define([_GCC_AUTOCONF_VERSION], ['"$AC_VERSION])/" config/override.m4
 autoreconf -fi
 mkdir -p build
 cd build
@@ -18,4 +17,5 @@ make install
 make distclean
 cd ..
 rm -rf build
+mv config/override.m4.zcbak config/override.m4
 exit 0

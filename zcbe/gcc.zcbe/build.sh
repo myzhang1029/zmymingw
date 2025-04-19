@@ -1,10 +1,8 @@
 #!/bin/sh
 
-mv config/override.m4 config/override.m4.bak
 AC_VERSION="$(LC_ALL=C autoconf --version|head -n1|rev|cut -d\  -f1|rev)"
-sed 's/m4_define(\[_GCC_AUTOCONF_VERSION\], \[[0-9]*\.[0-9]*\])/m4_define([_GCC_AUTOCONF_VERSION], ['"$AC_VERSION])/" config/override.m4.bak > config/override.m4
-mv configure.ac configure.ac.bak
-sed 's/RAW_CXX_FOR_TARGET="\$CXX_FOR_TARGET"/RAW_CXX_FOR_TARGET="$CXX_FOR_TARGET -nostdinc++"/' configure.ac.bak > configure.ac
+sed -i.zcbak 's/m4_define(\[_GCC_AUTOCONF_VERSION\], \[[0-9]*\.[0-9]*\])/m4_define([_GCC_AUTOCONF_VERSION], ['"$AC_VERSION])/" config/override.m4
+sed -i.zcbak 's/RAW_CXX_FOR_TARGET="\$CXX_FOR_TARGET"/RAW_CXX_FOR_TARGET="$CXX_FOR_TARGET -nostdinc++"/' configure.ac
 autoreconf -i
 mkdir build
 (
@@ -18,6 +16,6 @@ cp "${ZCPREF}"/lib/libgcc_s_sjlj-1.dll "${ZCPREF}"/bin || true
 cp "${ZCPREF}"/lib/libgcc_s_seh-1.dll "${ZCPREF}"/bin || true
 )
 rm -rf build
-mv config/override.m4.bak config/override.m4
-mv configure.ac.bak configure.ac
+mv config/override.m4.zcbak config/override.m4
+mv configure.ac.zcbak configure.ac
 exit 0

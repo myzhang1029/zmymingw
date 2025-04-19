@@ -1,6 +1,6 @@
 #!/bin/sh
 patch -u < "${ZCTOP}/zcbe/readline.zcbe/build.patch"
-LDFLAGS=-L${ZCPREF}/lib ./configure --host=${ZCHOST} --build="$(${ZCTOP}/zcbe/config.guess)" --prefix=${ZCPREF} --disable-shared --enable-static
+LDFLAGS=-L${ZCPREF}/lib ./configure --host=${ZCHOST} --build="$(${ZCTOP}/zcbe/config.guess)" --prefix=${ZCPREF} --enable-shared --disable-static
 make
 make install
 make distclean

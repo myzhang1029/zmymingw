@@ -1,13 +1,6 @@
 #!/bin/sh
 
-if sed --version > /dev/null 2>&1
-then
-    # GNU sed takes -i without an argument
-    sed -i "s/ dlltool / ${ZCHOST}-dlltool /" deps/winhttp/CMakeLists.txt
-else
-    # BSD sed's -i needs a postfix
-    sed -i "" "s/ dlltool / ${ZCHOST}-dlltool /" deps/winhttp/CMakeLists.txt
-fi
+sed -i.zcbak "s/ dlltool / ${ZCHOST}-dlltool /" deps/winhttp/CMakeLists.txt
 
 # Create a dummy library for CMake to "resolve"
 g()
@@ -26,5 +19,6 @@ LDFLAGS="-L${ZCPREF}/lib -lssl" cmake -DCMAKE_TOOLCHAIN_FILE="${ZCPREF}"/tmp/too
 cmake --build zcbe_build
 cmake --install zcbe_build
 rm -rf zcbe_build
+mv deps/winhttp/CMakeLists.txt.zcbak deps/winhttp/CMakeLists.txt
 
 exit 0

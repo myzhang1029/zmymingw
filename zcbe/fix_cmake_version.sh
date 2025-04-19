@@ -5,12 +5,5 @@ exp='s/CMAKE_MINIMUM_REQUIRED\( \)*(VERSION \([0-9.]*\)\( *\)\(.*\))/CMAKE_MINIM
 
 for file in "$@"
 do
-    if sed --version > /dev/null 2>&1
-    then
-        # GNU sed takes -i without an argument
-        sed -i "$exp" "$file"
-    else
-        # BSD sed's -i needs a postfix
-        sed -i "" "$exp" "$file"
-    fi
+    sed -i.zcbak "$exp" "$file"
 done

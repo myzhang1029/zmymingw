@@ -6,6 +6,11 @@ ver = "2.44"
 
 [deps]
 req = [
+"gmp",
+"mpfr",
+"mpc",
+"isl",
+"gc",
 "libintl",
 ]
 
