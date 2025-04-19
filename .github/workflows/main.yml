@@ -63,9 +63,16 @@ jobs:
             ccache:${{ matrix.host_trip}}
 
       # Whatever it built is considered as success
-      - name: Build
+      - name: Build GCC and GDB
+        run: |
+          sh -c 'python3 -m zcbe -syj8 gcc gdb || true'
+
+      - name: Build the rest
         run: |
           sh -c 'python3 -m zcbe -sayj8 || true'
+
+      - name: Package the result
+        run: |
           cd /home/runner/artifact
           tar -Jcf ${{ matrix.host_trip }}.tar.xz ${{ matrix.host_trip }}
 
