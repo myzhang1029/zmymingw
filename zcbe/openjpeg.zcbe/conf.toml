@@ -9,3 +9,9 @@ build = [
 "sphinx-doc",
 "cmake",
 ]
+req = [
+"lcms2",
+"libpng",
+"tiff",
+"zlib",
+]

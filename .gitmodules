@@ -273,3 +273,6 @@
 [submodule "devel/ninja"]
 	path = devel/ninja
 	url = https://github.com/ninja-build/ninja.git
+[submodule "user/vim"]
+	path = user/vim
+	url = https://github.com/vim/vim.git
