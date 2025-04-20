@@ -279,3 +279,6 @@
 [submodule "libraries/mingw-libgnurx"]
 	path = libraries/mingw-libgnurx
 	url = https://git.code.sf.net/p/mingw/regex
+[submodule "user/jq"]
+	path = user/jq
+	url = https://github.com/jqlang/jq.git
