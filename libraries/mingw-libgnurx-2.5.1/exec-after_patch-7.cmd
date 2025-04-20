@@ -1,1 +1,0 @@
-automake --add-missing

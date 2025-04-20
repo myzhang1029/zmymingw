@@ -252,9 +252,6 @@
 [submodule "libraries/graphite"]
 	path = libraries/graphite
 	url = https://github.com/silnrsi/graphite.git
-[submodule "libraries/libmad"]
-	path = libraries/libmad
-	url = https://github.com/sezero/libmad.git
 [submodule "libraries/p11-kit"]
 	path = libraries/p11-kit
 	url = https://github.com/p11-glue/p11-kit.git
@@ -276,3 +273,9 @@
 [submodule "user/vim"]
 	path = user/vim
 	url = https://github.com/vim/vim.git
+[submodule "devel/help2man"]
+	path = devel/help2man
+	url = https://salsa.debian.org/bod/help2man.git
+[submodule "libraries/mingw-libgnurx"]
+	path = libraries/mingw-libgnurx
+	url = https://git.code.sf.net/p/mingw/regex
