@@ -1,6 +1,6 @@
 #!/bin/sh
 
-patch -u < "${ZCTOP}/zcbe/file.zcbe/build.patch"
+patch -p1 < "${ZCTOP}/zcbe/file.zcbe/build.patch"
 autoreconf -i
 dir=$(mktemp -d)
 # First build a native version of file
@@ -12,5 +12,5 @@ CFLAGS=-I${ZCPREF}/include LDFLAGS=-L${ZCPREF}/lib ./configure --host="${ZCHOST}
 make FILE_COMPILE=$dir/bin/file
 make install
 make distclean
-patch -R -u < "${ZCTOP}/zcbe/file.zcbe/build.patch"
+patch -R -1< "${ZCTOP}/zcbe/file.zcbe/build.patch"
 exit 0

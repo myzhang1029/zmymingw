@@ -1,6 +1,6 @@
 #!/bin/sh
 
-patch -u < "${ZCTOP}/zcbe/libsndfile.zcbe/build.patch"
+patch -p1 < "${ZCTOP}/zcbe/libsndfile.zcbe/build.patch"
 "${ZCTOP}/zcbe/fix_cmake_version.sh" CMakeLists.txt
 "${ZCTOP}"/zcbe/gen_toolchainfile.sh
 ninja="$("${ZCTOP}"/zcbe/checkninja.sh)"
@@ -8,6 +8,6 @@ cmake -DCMAKE_TOOLCHAIN_FILE="${ZCPREF}"/tmp/toolchain.cmake -DCMAKE_BUILD_TYPE=
 cmake --build zcbe_build
 cmake --install zcbe_build
 rm -rf zcbe_build
-patch -R -u < "${ZCTOP}/zcbe/libsndfile.zcbe/build.patch"
+patch -R -p1 < "${ZCTOP}/zcbe/libsndfile.zcbe/build.patch"
 
 exit 0
