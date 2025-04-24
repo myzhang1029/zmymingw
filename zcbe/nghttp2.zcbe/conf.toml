@@ -1,0 +1,12 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "nghttp2"
+ver = "1.65.0"
+
+[deps]
+req = [
+"libcares",
+"libressl",
+"libxml2",
+]

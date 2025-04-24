@@ -1,0 +1,20 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "wget2"
+ver = "2.2.0"
+
+[deps]
+req = [
+"bzip2",
+"gpgme",
+"libressl",
+"libpsl",
+"nghttp2",
+"pcre",
+"xz",
+"zstd",
+]
+
+[env]
+CC = "${ZCHOST}-gcc"

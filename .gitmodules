@@ -282,3 +282,9 @@
 [submodule "user/jq"]
 	path = user/jq
 	url = https://github.com/jqlang/jq.git
+[submodule "user/wget2"]
+	path = user/wget2
+	url = https://gitlab.com/gnuwget/wget2.git
+[submodule "libraries/nghttp2"]
+	path = libraries/nghttp2
+	url = https://github.com/nghttp2/nghttp2.git
