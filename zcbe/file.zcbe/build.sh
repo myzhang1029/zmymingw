@@ -12,5 +12,5 @@ CFLAGS=-I${ZCPREF}/include LDFLAGS=-L${ZCPREF}/lib ./configure --host="${ZCHOST}
 make FILE_COMPILE=$dir/bin/file
 make install
 make distclean
-patch -R -1< "${ZCTOP}/zcbe/file.zcbe/build.patch"
+patch -R -p1 < "${ZCTOP}/zcbe/file.zcbe/build.patch"
 exit 0
