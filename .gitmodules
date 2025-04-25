@@ -288,3 +288,6 @@
 [submodule "libraries/nghttp2"]
 	path = libraries/nghttp2
 	url = https://github.com/nghttp2/nghttp2.git
+[submodule "devel/llvm"]
+	path = devel/llvm
+	url = https://github.com/llvm/llvm-project.git
