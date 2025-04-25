@@ -11,5 +11,6 @@ build = [
 req = [
 "flac",
 "libogg",
+"opus",
 "vorbis",
 ]
