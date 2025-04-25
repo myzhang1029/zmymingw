@@ -8,5 +8,5 @@ make distclean
 "${ZCHOST}-gcc" -shared -o libbz2.dll -Wl,--out-implib,libbz2.dll.a blocksort.c huffman.c crctable.c randtable.c compress.c decompress.c bzlib.c
 cp libbz2.dll.a "${ZCPREF}"/lib
 cp libbz2.dll "${ZCPREF}"/bin
-rm *.exe
+rm -f *.exe libbz2.dll libbz2.dll.a libbz2.a
 exit 0
