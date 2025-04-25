@@ -12,6 +12,7 @@ req = [
 "isl",
 "gc",
 "libintl",
+"zstd",
 ]
 
 [env]

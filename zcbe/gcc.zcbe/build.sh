@@ -8,7 +8,7 @@ mkdir build
 (
 cd build
 CFLAGS=-Wno-unused-parameter ../configure --host="${ZCHOST}" --build="$("${ZCTOP}"/zcbe/config.guess)" --target="${ZCHOST}" --prefix="${ZCPREF}" --with-zlib="${ZCPREF}" \
---with-mpfr="${ZCPREF}" --with-gmp="${ZCPREF}" --with-mpc="${ZCPREF}" \
+--with-mpfr="${ZCPREF}" --with-gmp="${ZCPREF}" --with-mpc="${ZCPREF}" --with-zstd="${ZCPREF}" --with-isl="${ZCPREF}" \
 --enable-languages=c,c++,fortran,lto --disable-multilib --disable-nls
 make
 make install
