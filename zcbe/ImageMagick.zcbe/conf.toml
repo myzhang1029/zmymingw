@@ -15,7 +15,6 @@ req = [
 "libpng",
 "libxml2",
 "libwebp",
-"mingw-w64",
 "openjpeg",
 "tiff",
 "xz",

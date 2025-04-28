@@ -4,10 +4,5 @@
 name = "grep"
 ver = "3.12"
 
-[deps]
-req = [
-"mingw-w64"
-]
-
 [env]
 CC = "${ZCHOST}-gcc"
