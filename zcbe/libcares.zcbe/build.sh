@@ -1,8 +1,10 @@
 #!/bin/sh
 
-autoreconf -fi
-./configure --prefix="${ZCPREF}" --host="${ZCHOST}" --build="$("${ZCTOP}"/zcbe/config.guess)" --disable-static
-make
-make install
-make clean
-make distclean -i
+"${ZCTOP}"/zcbe/gen_toolchainfile.sh
+ninja="$("${ZCTOP}"/zcbe/checkninja.sh)"
+cmake -DCMAKE_TOOLCHAIN_FILE="${ZCPREF}"/tmp/toolchain.cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX="${ZCPREF}" -DBUILD_SHARED_LIBS=ON -G "${ninja}" -S . -B zcbe_build
+cmake --build zcbe_build
+cmake --install zcbe_build
+rm -rf zcbe_build
+
+exit 0

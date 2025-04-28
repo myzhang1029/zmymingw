@@ -9,6 +9,7 @@ req = [
 "libpsl",
 "libssh2",
 "libressl",
+"nghttp2",
 "zlib",
 ]
 

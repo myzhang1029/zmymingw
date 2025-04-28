@@ -13,6 +13,8 @@ req = [
 "bzip2",
 "pcre",
 "libressl",
+"libiconv",
+"expat",
 "nettle",
 ]
 

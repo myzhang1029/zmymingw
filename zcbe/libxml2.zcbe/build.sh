@@ -1,6 +1,9 @@
 #!/bin/sh
-PKG_CONFIG_PATH="${ZCPREF}"/lib/pkgconfig CFLAGS=-I"${ZCPREF}"/include LDFLAGS=-L"${ZCPREF}"/lib ./autogen.sh --prefix="${ZCPREF}" --host="${ZCHOST}" --without-python
-make
-make install
-make distclean
+"${ZCTOP}"/zcbe/gen_toolchainfile.sh
+ninja="$("${ZCTOP}"/zcbe/checkninja.sh)"
+cmake -DCMAKE_TOOLCHAIN_FILE="${ZCPREF}"/tmp/toolchain.cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX="${ZCPREF}" -DBUILD_SHARED_LIBS=ON -DLIBXML2_WITH_PYTHON=OFF -G "${ninja}" -S . -B zcbe_build
+cmake --build zcbe_build
+cmake --install zcbe_build
+rm -rf zcbe_build
+
 exit 0

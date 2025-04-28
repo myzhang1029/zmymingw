@@ -49,9 +49,6 @@
 [submodule "libraries/flac"]
 	path = libraries/flac
 	url = https://github.com/xiph/flac.git
-[submodule "libraries/libuv"]
-	path = libraries/libuv
-	url = https://github.com/libuv/libuv
 [submodule "libraries/libwebp"]
 	path = libraries/libwebp
 	url = https://github.com/webmproject/libwebp
@@ -291,3 +288,6 @@
 [submodule "devel/llvm"]
 	path = devel/llvm
 	url = https://github.com/llvm/llvm-project.git
+[submodule "libraries/SDL"]
+	path = libraries/SDL
+	url = https://github.com/libsdl-org/SDL.git

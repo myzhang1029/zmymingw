@@ -6,7 +6,8 @@ ver = "10.45"
 
 [deps]
 req = [
-"readline"
+"bzip2",
+"readline",
 ]
 
 [env]
