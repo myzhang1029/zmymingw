@@ -27,6 +27,17 @@ jobs:
     
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: Maximize build space
+        uses: easimon/maximize-build-space@master
+        with:
+          root-reserve-mb: 512
+          swap-size-mb: 2048
+          remove-dotnet: true
+          remove-android: true
+          remove-haskell: true
+          remove-codeql: true
+          remove-docker-images: true
+
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
@@ -34,6 +45,7 @@ jobs:
         run: |
           sudo apt update
           sudo apt install -y build-essential
+          sudo apt clean
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.bash_profile
           eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
@@ -51,6 +63,7 @@ jobs:
           xmlto python3 perl imagemagick meson ninja bison flex gperf docbook-xsl \
           help2man ed autoconf-archive fig2dev ccache castxml docbook2x file nasm \
           gtk-doc sphinx-doc file curl po4a mingw-w64 docbook
+          brew cleanup --prune=all
           python3 -m pip install zcbe==v0.5.0
 
       - name: Check out submodules
