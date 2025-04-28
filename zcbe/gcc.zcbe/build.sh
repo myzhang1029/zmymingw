@@ -4,18 +4,17 @@ AC_VERSION="$(LC_ALL=C autoconf --version|head -n1|rev|cut -d\  -f1|rev)"
 sed -i.zcbak 's/m4_define(\[_GCC_AUTOCONF_VERSION\], \[[0-9]*\.[0-9]*\])/m4_define([_GCC_AUTOCONF_VERSION], ['"$AC_VERSION])/" config/override.m4
 sed -i.zcbak 's/RAW_CXX_FOR_TARGET="\$CXX_FOR_TARGET"/RAW_CXX_FOR_TARGET="$CXX_FOR_TARGET -nostdinc++"/' configure.ac
 autoreconf -i
-mkdir build
 (
-cd build
+mkdir -p zcbe_build && cd zcbe_build || exit 1
 CFLAGS=-Wno-unused-parameter ../configure --host="${ZCHOST}" --build="$("${ZCTOP}"/zcbe/config.guess)" --target="${ZCHOST}" --prefix="${ZCPREF}" --with-zlib="${ZCPREF}" \
 --with-mpfr="${ZCPREF}" --with-gmp="${ZCPREF}" --with-mpc="${ZCPREF}" --with-zstd="${ZCPREF}" --with-isl="${ZCPREF}" \
---enable-languages=c,c++,fortran,lto --disable-multilib --disable-nls
+--enable-languages=c,c++,fortran,lto --disable-multilib --disable-nls --without-libiconv
 make
 make install
 cp "${ZCPREF}"/lib/libgcc_s_sjlj-1.dll "${ZCPREF}"/bin || true
 cp "${ZCPREF}"/lib/libgcc_s_seh-1.dll "${ZCPREF}"/bin || true
 )
-rm -rf build
+rm -rf zcbe_build
 mv config/override.m4.zcbak config/override.m4
 mv configure.ac.zcbak configure.ac
 exit 0
