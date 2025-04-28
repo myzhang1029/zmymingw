@@ -63,7 +63,7 @@ jobs:
           xmlto python3 perl imagemagick meson ninja bison flex gperf docbook-xsl \
           help2man ed autoconf-archive fig2dev ccache castxml docbook2x file nasm \
           gtk-doc sphinx-doc file curl po4a mingw-w64 docbook
-          brew cleanup --prune=all
+          brew cleanup --prune=all || true
           python3 -m pip install zcbe==v0.5.0
 
       - name: Check out submodules
