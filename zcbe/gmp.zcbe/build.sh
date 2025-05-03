@@ -1,7 +1,7 @@
 #!/bin/sh
 
 autoreconf -i
-./configure --host="${ZCHOST}" --build="$("${ZCTOP}"/zcbe/config.guess)" --prefix="${ZCPREF}" --enable-shared --disable-static
+CFLAGS=-std=gnu99 ./configure --host="${ZCHOST}" --build="$("${ZCTOP}"/zcbe/config.guess)" --prefix="${ZCPREF}" --enable-shared --disable-static
 make
 make install
 make distclean

@@ -109,9 +109,6 @@
 [submodule "libraries/mingw-w64"]
 	path = libraries/mingw-w64
 	url = https://git.code.sf.net/p/mingw-w64/mingw-w64
-[submodule "devel/gdb"]
-	path = devel/gdb
-	url = https://sourceware.org/git/binutils-gdb.git
 [submodule "devel/libtool"]
 	path = devel/libtool
 	url = git://git.savannah.gnu.org/libtool.git

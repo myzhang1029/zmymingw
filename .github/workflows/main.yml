@@ -87,13 +87,19 @@ jobs:
             ccache:${{ matrix.host_trip}}
 
       # Whatever it built is considered as success
-      - name: Build GCC and GDB
+      - name: Build GCC, binutils, GDB, and LLVM
         run: |
-          sh -c 'python3 -m zcbe -syj8 gcc gdb || true'
+          sh -c 'python3 -m zcbe -syj8 gcc || true'
+          sh -c 'python3 -m zcbe -sy llvm || true'
 
       - name: Build the rest
         run: |
           sh -c 'python3 -m zcbe -sayj8 || true'
+          sh -c 'python3 -m zcbe -sayj8 || true'
+
+      - name: Strip binaries
+        run: |
+          find /home/runner/artifact -name "*.exe" -o -name "*.dll" -exec ${ matrix.host_trip }-strip --strip-all {} \;
 
       - name: Package the result
         run: |

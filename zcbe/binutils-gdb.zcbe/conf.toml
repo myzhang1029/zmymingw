@@ -1,0 +1,20 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "binutils-gdb"
+ver = "2.44"
+
+[deps]
+req = [
+"gmp",
+"mpfr",
+"mpc",
+"isl",
+"gc",
+"readline",
+"libintl",
+"zstd",
+]
+
+[env]
+CC = "${ZCHOST}-gcc"

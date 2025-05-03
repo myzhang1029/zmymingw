@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "wxWidgets"
-ver = "3.1.4"
+ver = "3.2.8"
 
 [deps]
 req = [
