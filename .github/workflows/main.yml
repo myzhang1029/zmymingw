@@ -30,7 +30,7 @@ jobs:
       - name: Maximize build space
         uses: easimon/maximize-build-space@master
         with:
-          root-reserve-mb: 512
+          root-reserve-mb: 7168
           swap-size-mb: 2048
           remove-dotnet: true
           remove-android: true
@@ -76,15 +76,6 @@ jobs:
         env:
           HOST_TRIP: ${{ matrix.host_trip }}
         run: sh set_up_ghaction.sh
-
-      - name: Ccache
-        uses: actions/cache@v4
-        with:
-          path: /home/runner/.ccache
-          key: ccache:${{ matrix.host_trip}}:${{ github.ref }}:${{ github.sha }}
-          restore-keys: |
-            ccache:${{ matrix.host_trip}}:${{ github.ref }}
-            ccache:${{ matrix.host_trip}}
 
       # Whatever it built is considered as success
       - name: Build GCC, binutils, GDB, and LLVM
