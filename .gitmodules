@@ -288,3 +288,6 @@
 [submodule "libraries/SDL"]
 	path = libraries/SDL
 	url = https://github.com/libsdl-org/SDL.git
+[submodule "libraries/libressl"]
+	path = libraries/libressl
+	url = https://github.com/libressl/portable.git

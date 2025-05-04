@@ -2,7 +2,4 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "libressl"
-ver = "4.0.0"
-
-[env]
-CC = "${ZCHOST}-gcc"
+ver = "4.1.0"
