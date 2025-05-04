@@ -68,8 +68,10 @@ jobs:
 
       - name: Check out submodules
         run: |
-          git submodule init
-          git submodule update
+          while ! git submodule update --init; do
+            echo "Retrying git submodule update --init"
+            sleep 1
+          done
           
       # Set build.toml
       - name: Set build parameters
