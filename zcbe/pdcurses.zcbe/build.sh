@@ -1,10 +1,18 @@
 #!/bin/sh
-cp "${ZCTOP}/zcbe/pdcurses.zcbe/Makefilea" wincon
-make -C wincon -f Makefilea CROSS=${ZCHOST}- all demos
-make -C wincon -f Makefilea install_static PREFIX=${ZCPREF}
-make -C wincon -f Makefilea clean
-make -C wincon -f Makefilea CROSS=${ZCHOST}- DLL=Y all demos
-make -C wincon -f Makefilea install_shared PREFIX=${ZCPREF} DLL=Y
-make -C wincon -f Makefilea clean DLL=Y
-rm wincon/Makefilea
+make -C wincon CC="${ZCHOST}"-gcc AR="${ZCHOST}"-ar STRIP="${ZCHOST}"-strip LINK="${ZCHOST}"-gcc WINDRES="${ZCHOST}"-windres DLL=Y all demos
+install -d -m 755 "${ZCPREF}/bin"
+install -d -m 755 "${ZCPREF}/lib"
+install -d -m 755 "${ZCPREF}/include"
+(
+cd wincon
+install -m 755 pdcurses.dll "${ZCPREF}/bin"
+install -m 755 firework.exe ozdemo.exe ptest.exe rain.exe testcurs.exe tuidemo.exe worm.exe xmas.exe "${ZCPREF}/bin"
+install -m 644 pdcurses.a "${ZCPREF}/lib/libpdcurses.dll.a"
+install -m 644 pdcwin.h "${ZCPREF}/include"
+)
+install -m 644 panel.h "${ZCPREF}/include"
+install -m 644 curses.h "${ZCPREF}/include"
+install -m 644 curspriv.h "${ZCPREF}/include"
+
+
 exit 0
