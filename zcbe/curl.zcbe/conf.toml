@@ -16,4 +16,4 @@ req = [
 [env]
 CC = "${ZCHOST}-gcc"
 LDFLAGS = "-L${ZCPREF}/lib"
-CFLAGS = "-I${ZCPREF}/include"
+CFLAGS = "-isystem ${ZCPREF}/include"

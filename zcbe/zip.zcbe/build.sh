@@ -18,7 +18,7 @@ fi
 
 # Mingw's headers have conflicting CR
 find . -name '*.[ch]' -exec $ised {} \;
-make -f win32/makefile.gcc CC="${ZCHOST}-gcc" RC=${ZCHOST}-windres USEZLIB=1 LOC="-I${ZCPREF}/include -Wno-incompatible-pointer-types" LOC_LD="-L${ZCPREF}/lib -lz"
+make -f win32/makefile.gcc CC="${ZCHOST}-gcc" RC=${ZCHOST}-windres USEZLIB=1 LOC="-isystem ${ZCPREF}/include -Wno-incompatible-pointer-types" LOC_LD="-L${ZCPREF}/lib -lz"
 make -B -f "${ZCTOP}"/zcbe/zip.zcbe/makefile.install prefix="${ZCPREF}"
 make -f win32/makefile.gcc clean
 cd -

@@ -8,7 +8,7 @@ cd mingw-w64-headers
 make install
 )
 
-CFLAGS=-I"${ZCPREF}/include -Wno-expansion-to-defined" LDFLAGS=-I"${ZCPREF}/lib" ./configure --host="${ZCHOST}" --build="$($ZCTOP/zcbe/config.guess)" --prefix="${ZCPREF}" --with-libraries=libmangle,winpthreads --with-tools=all
+CFLAGS="-isystem ${ZCPREF}/include" LDFLAGS=-I"${ZCPREF}/lib" ./configure --host="${ZCHOST}" --build="$($ZCTOP/zcbe/config.guess)" --prefix="${ZCPREF}" --with-libraries=libmangle,winpthreads --with-tools=all
 # Don't use a -j flag because there is a data race
 make
 make install

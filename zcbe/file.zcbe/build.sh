@@ -8,7 +8,7 @@ dir=$(mktemp -d)
 make install distclean
 
 # Then build the cross version
-CFLAGS=-I${ZCPREF}/include LDFLAGS=-L${ZCPREF}/lib ./configure --host="${ZCHOST}" --build="$("${ZCTOP}"/zcbe/config.guess)" --prefix="${ZCPREF}"
+CFLAGS="-isystem ${ZCPREF}/include" LDFLAGS=-L${ZCPREF}/lib ./configure --host="${ZCHOST}" --build="$("${ZCTOP}"/zcbe/config.guess)" --prefix="${ZCPREF}"
 make FILE_COMPILE=$dir/bin/file
 make install
 make distclean

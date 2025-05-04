@@ -6,6 +6,6 @@ index 2ad8ccde..59bbaac9 100644
  endif ()
  
  if (BUILD_SHARED_LIBS)
--       find_package (PythonInterp REQUIRED)
-+       find_package (Python REQUIRED)
+-	find_package (PythonInterp REQUIRED)
++	find_package (Python REQUIRED)
  endif()

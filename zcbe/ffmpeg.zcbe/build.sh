@@ -30,7 +30,7 @@ sed -i.zcbak 's/\$(WINDRES) \$(IFLAGS) --preprocessor "\$(DEPWINDRES) -E -xc-hea
 --disable-manpages \
 --disable-txtpages \
 --extra-ldflags="-L${ZCPREF}/lib" \
---extra-cflags="-I${ZCPREF}/include -I${ZCPREF}/SDL2 -DDBL_EPSILON=__DBL_EPSILON__ -DFLT_EPSILON=__FLT_EPSILON__ -DLDBL_EPSILON=__LDBL_EPSILON__" \
+--extra-cflags="-isystem ${ZCPREF}/include -I${ZCPREF}/SDL2 -DDBL_EPSILON=__DBL_EPSILON__ -DFLT_EPSILON=__FLT_EPSILON__ -DLDBL_EPSILON=__LDBL_EPSILON__" \
 --extra-libs=-lSDL2
 make
 make install

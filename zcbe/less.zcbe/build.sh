@@ -1,7 +1,7 @@
 #!/bin/sh
 
 autoreconf -fi
-LDFLAGS="-L${ZCPREF}/lib" CFLAGS="-I${ZCPREF}/include" LIBS=-ltermcap ./configure --host="${ZCHOST}" --build="$("${ZCTOP}"/zcbe/config.guess)" --prefix="${ZCPREF}" --with-regex=pcre
+LDFLAGS="-L${ZCPREF}/lib" CFLAGS="-isystem ${ZCPREF}/include" LIBS=-ltermcap ./configure --host="${ZCHOST}" --build="$("${ZCTOP}"/zcbe/config.guess)" --prefix="${ZCPREF}" --with-regex=pcre
 
 make -f Makefile.aut funcs.h less.nro lesskey.nro lessecho.nro
 sed -i.zcbak "/MSDOS_COMPILER/d;" defines.h
