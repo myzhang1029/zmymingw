@@ -13,6 +13,7 @@ req = [
 "gc",
 "readline",
 "libintl",
+"zlib",
 "zstd",
 ]
 

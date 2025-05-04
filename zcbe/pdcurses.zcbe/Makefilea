@@ -125,7 +125,6 @@ install_shared:
 	install -m 644 pdcurses.dll.a $(PREFIX)/lib/libcurses.dll.a
 	install -m 644 ../curses.h $(PREFIX)/include/
 	install -m 644 ../curses.h $(PREFIX)/include/ncurses.h
-	install -m 644 ../curses.h $(PREFIX)/include/term.h
 
 install_static:
 	install -d -m 755 $(PREFIX)/bin
