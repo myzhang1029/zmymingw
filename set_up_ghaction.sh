@@ -1,7 +1,7 @@
 #!/bin/sh
 
 mkdir -p /home/runner/ccache_bin
-CCACHE_LOC="$(which ccache)"
+CCACHE_LOC="$(which sccache)"
 ln -s "${CCACHE_LOC}" /home/runner/ccache_bin/x86_64-w64-mingw32-gcc
 ln -s "${CCACHE_LOC}" /home/runner/ccache_bin/x86_64-w64-mingw32-cc
 ln -s "${CCACHE_LOC}" /home/runner/ccache_bin/x86_64-w64-mingw32-g++
