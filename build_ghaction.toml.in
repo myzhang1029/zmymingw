@@ -2,7 +2,7 @@
 # Placed in current working directory of zcbe
 [info]
 build-name = "GitHub Actions build for @host_trip@"
-prefix = "/home/runner/artifact/@host_trip@"
+prefix = "/home/runner/work/zmymingw/zmymingw/artifact/@host_trip@"
 hostname = "@host_trip@"
 
 [deps]
