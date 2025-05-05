@@ -76,9 +76,6 @@
 [submodule "libraries/bdwgc"]
 	path = libraries/bdwgc
 	url = https://github.com/ivmai/bdwgc.git
-[submodule "libraries/libatomic_ops"]
-	path = libraries/libatomic_ops
-	url = https://github.com/ivmai/libatomic_ops.git
 [submodule "libraries/x265"]
 	path = libraries/x265
 	url = https://bitbucket.org/multicoreware/x265_git.git
