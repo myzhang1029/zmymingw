@@ -92,15 +92,15 @@ jobs:
 
       - name: Strip binaries
         run: |
-          find /home/runner/artifact -name "*.exe" -o -name "*.dll" -exec ${ matrix.host_trip }-strip --strip-all {} \;
+          find /home/runner/work/zmymingw/zmymingw/artifact -name "*.exe" -o -name "*.dll" -exec ${ matrix.host_trip }-strip --strip-all {} \;
 
       - name: Package the result
         run: |
-          cd /home/runner/artifact
+          cd /home/runner/work/zmymingw/zmymingw/artifact
           tar -Jcf ${{ matrix.host_trip }}.tar.xz ${{ matrix.host_trip }}
 
       - name: Upload Result
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.host_trip }}.tar.xz
-          path: /home/runner/artifact/${{ matrix.host_trip }}.tar.xz
+          path: /home/runner/work/zmymingw/zmymingw/artifact/${{ matrix.host_trip }}.tar.xz
