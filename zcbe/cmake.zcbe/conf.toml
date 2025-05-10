@@ -9,3 +9,9 @@ build = [
 "sphinx-doc",
 "cmake",
 ]
+req = [
+"zlib",
+"nghttp2",
+"xz",
+"bzip2",
+]
