@@ -15,10 +15,10 @@
 	url = https://git.tukaani.org/xz.git
 [submodule "archival/gzip"]
 	path = archival/gzip
-	url = https://git.savannah.gnu.org/git/gzip.git
+	url = git://git.savannah.gnu.org/gzip.git
 [submodule "libraries/gnulib"]
 	path = libraries/gnulib
-	url = https://git.savannah.gnu.org/git/gnulib.git
+	url = git://git.savannah.gnu.org/gnulib.git
 [submodule "libraries/x264"]
 	path = libraries/x264
 	url = https://code.videolan.org/videolan/x264.git
@@ -99,10 +99,10 @@
 	url = https://github.com/strukturag/libheif.git
 [submodule "devel/make"]
 	path = devel/make
-    url = https://git.savannah.gnu.org/git/make.git
+    url = git://git.savannah.gnu.org/make.git
 [submodule "devel/autoconf"]
 	path = devel/autoconf
-	url = https://git.savannah.gnu.org/git/autoconf.git
+	url = git://git.savannah.gnu.org/autoconf.git
 [submodule "libraries/mingw-w64"]
 	path = libraries/mingw-w64
 	url = https://git.code.sf.net/p/mingw-w64/mingw-w64
@@ -111,7 +111,7 @@
 	url = git://git.savannah.gnu.org/libtool.git
 [submodule "user/sed"]
 	path = user/sed
-	url = https://git.savannah.gnu.org/git/sed.git
+	url = git://git.savannah.gnu.org/sed.git
 [submodule "devel/gcc"]
 	path = devel/gcc
 	url = https://gcc.gnu.org/git/gcc.git
@@ -129,7 +129,7 @@
 	url = https://gitlab.gnome.org/GNOME/glib.git
 [submodule "devel/bison"]
 	path = devel/bison
-	url = https://git.savannah.gnu.org/git/bison.git
+	url = git://git.savannah.gnu.org/bison.git
 [submodule "user/diffutils"]
 	path = user/diffutils
 	url = git://git.savannah.gnu.org/diffutils.git
@@ -171,7 +171,7 @@
 	url = https://sourceware.org/git/bzip2.git
 [submodule "libraries/readline"]
 	path = libraries/readline
-	url = https://git.savannah.gnu.org/git/readline.git
+	url = git://git.savannah.gnu.org/readline.git
 [submodule "devel/yasm"]
 	path = devel/yasm
 	url = https://github.com/yasm/yasm.git
