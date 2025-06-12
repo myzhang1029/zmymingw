@@ -1,6 +1,7 @@
 #!/bin/sh
-set -xv
-sed -i.zcbak "s/AC_PREREQ\(.*\)/AC_PREREQ([${AC_MINVER}])/" configure.ac
+AC_VERSION="$(LC_ALL=C autoconf --version|head -n1|rev|cut -d\  -f1|rev)"
+sed -i.zcbak "s/AC_PREREQ\(.*\)/AC_PREREQ([${AC_VERSION}])/" configure.ac
+sed -i.zcbak "s/aclocal-[0-9]*\.[0-9]*/aclocal/;s/automake-[0-9]*\.[0-9]*/automake/" Makefile.devel
 sed -i.zcbak "s/aclocal-[0-9]*\.[0-9]*/aclocal/" libcharset/Makefile.devel
 GNULIB_SRCDIR="${ZCTOP}/libraries/gnulib" ./autogen.sh
 # Tired of fighting autotools 
@@ -14,6 +15,7 @@ make install
 make distclean
 mv include/iconv.h.build.in.zcbak include/iconv.h.build.in
 mv include/iconv.h.in.zcbak include/iconv.h.in
+mv Makefile.devel.zcbak Makefile.devel
 mv libcharset/Makefile.devel.zcbak libcharset/Makefile.devel
 mv configure.ac.zcbak configure.ac
 exit 0

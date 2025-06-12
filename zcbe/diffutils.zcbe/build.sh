@@ -1,6 +1,7 @@
 #!/bin/sh
 
-sed -i.zcbak "s/AC_PREREQ\(.*\)/AC_PREREQ([${AC_MINVER}])/" configure.ac
+AC_VERSION="$(LC_ALL=C autoconf --version|head -n1|rev|cut -d\  -f1|rev)"
+sed -i.zcbak "s/AC_PREREQ\(.*\)/AC_PREREQ([${AC_VERSION}])/" configure.ac
 sed -i.zcbak "s/^getopt$/getopt-gnu/" bootstrap.conf
 
 patch -p1 < "${ZCTOP}/zcbe/diffutils.zcbe/build.patch"

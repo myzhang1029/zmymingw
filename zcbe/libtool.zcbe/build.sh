@@ -1,5 +1,6 @@
 #!/bin/sh
-sed -i.zcbak "s/AC_PREREQ\(.*\)/AC_PREREQ([${AC_MINVER}])/" configure.ac
+AC_VERSION="$(LC_ALL=C autoconf --version|head -n1|rev|cut -d\  -f1|rev)"
+sed -i.zcbak "s/AC_PREREQ\(.*\)/AC_PREREQ([${AC_VERSION}])/" configure.ac
 #autopoint -f
 ./bootstrap --gnulib-srcdir="${ZCTOP}"/libraries/gnulib --no-git
 ./configure --host="${ZCHOST}" --prefix="${ZCPREF}"
