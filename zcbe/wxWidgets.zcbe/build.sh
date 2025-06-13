@@ -1,6 +1,6 @@
 #!/bin/sh
 
-git submodule update --init
+test -d "${ZCTOP}/.git" && git submodule update --init
 
 "${ZCTOP}"/zcbe/gen_toolchainfile.sh
 ninja="$("${ZCTOP}"/zcbe/checkninja.sh)"

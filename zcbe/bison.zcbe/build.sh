@@ -1,6 +1,7 @@
 #!/bin/sh
 
-./bootstrap --gnulib-srcdir="${ZCTOP}"/libraries/gnulib --no-git || autoreconf -fi
+test -d "${ZCTOP}/.git" && git submodule update --init submodules/autoconf
+./bootstrap --gnulib-srcdir="${ZCTOP}"/libraries/gnulib --no-git
 ./configure --host="${ZCHOST}" --build="$("${ZCTOP}"/zcbe/config.guess)" --prefix="${ZCPREF}"
 # Sometimes this does not exist
 touch doc/bison.help
