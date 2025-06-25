@@ -1,4 +1,6 @@
 #!/bin/sh
+
+rm -f *.exe *.dll *.o wincon/*.exe wincon/*.dll wincon/*.o
 make -C wincon CC="${ZCHOST}"-gcc AR="${ZCHOST}"-ar STRIP="${ZCHOST}"-strip LINK="${ZCHOST}"-gcc WINDRES="${ZCHOST}"-windres DLL=Y all demos
 install -d -m 755 "${ZCPREF}/bin"
 install -d -m 755 "${ZCPREF}/lib"

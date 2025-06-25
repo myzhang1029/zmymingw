@@ -7,8 +7,9 @@ autoreconf -i
 mkdir -p zcbe_build && cd zcbe_build || exit 1
 ../configure --host="${ZCHOST}" --build="$("${ZCTOP}"/zcbe/config.guess)" --target="${ZCHOST}" --prefix="${ZCPREF}" --with-zlib="${ZCPREF}" \
 --with-mpfr="${ZCPREF}" --with-gmp="${ZCPREF}" --with-mpc="${ZCPREF}" --with-zstd="${ZCPREF}" --with-isl="${ZCPREF}" \
---enable-languages=c,c++,fortran,lto --disable-multilib --disable-nls
-make
+--with-libiconv-prefix="${ZCPREF}" \
+--enable-languages=c,c++,fortran,lto --disable-multilib --disable-nls --enable-libgomp
+make LDFLAGS="-L${ZCPREF}/lib"
 make install
 cp "${ZCPREF}"/lib/libgcc_s_sjlj-1.dll "${ZCPREF}"/bin || true
 cp "${ZCPREF}"/lib/libgcc_s_seh-1.dll "${ZCPREF}"/bin || true

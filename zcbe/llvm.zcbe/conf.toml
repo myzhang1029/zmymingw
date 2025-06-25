@@ -4,4 +4,12 @@
 name = "llvm"
 ver = "20.1.4"
 
-[deps] # Dependencies
+[deps]
+req = [
+"libxml2",
+"pdcurses",
+"readline",
+"xz",
+"zlib",
+"zstd",
+]

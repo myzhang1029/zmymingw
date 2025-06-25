@@ -10,6 +10,7 @@ build = [
 ]
 req = [
 "gmp",
+"libiconv",
 "mpc",
 "mpfr",
 "binutils-gdb",
