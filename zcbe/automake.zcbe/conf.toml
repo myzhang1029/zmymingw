@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "automake"
-ver = "1.17"
+ver = "1.18.1"
 
 [deps] # Dependencies
 req = [
