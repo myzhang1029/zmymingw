@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "readline"
-ver = "8.3-rc1"
+ver = "8.3"
 
 [deps]
 req = [

@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "pixman"
-ver = "0.46.0"
+ver = "0.46.4"
 
 [deps]
 build = [

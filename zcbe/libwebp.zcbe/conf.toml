@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "libwebp"
-ver = "1.2.0"
+ver = "1.6.0"
 
 [deps]
 req = [

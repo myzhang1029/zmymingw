@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "libheif"
-ver = "1.19.8"
+ver = "1.20.1"
 
 [deps]
 req = [
