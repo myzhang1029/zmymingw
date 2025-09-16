@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "libxml2"
-ver = "2.14.5"
+ver = "2.15.0"
 
 [deps]
 req = [

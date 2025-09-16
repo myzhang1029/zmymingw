@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "sdl2"
-ver = "2.32.6"
+ver = "2.32.10"
 
 [env]
 CC = "${ZCHOST}-gcc"

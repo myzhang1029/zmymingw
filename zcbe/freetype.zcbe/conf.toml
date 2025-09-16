@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "freetype"
-ver = "2.13.3"
+ver = "2.14.1"
 
 [deps]
 req = [

@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "pcre"
-ver = "10.45"
+ver = "10.46"
 
 [deps]
 req = [

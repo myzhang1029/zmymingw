@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "less"
-ver = "681"
+ver = "683"
 
 [deps]
 req = [
