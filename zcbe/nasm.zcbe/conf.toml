@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "nasm"
-ver = "2.16.03"
+ver = "3.0.0"
 
 [deps]
 build = [

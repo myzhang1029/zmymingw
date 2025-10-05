@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "libtool"
-ver = "2.5.4"
+ver = "2.6.0"
 
 [deps] # Dependencies
 req = [

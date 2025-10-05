@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "tiff"
-ver = "4.7.0"
+ver = "4.7.1"
 
 [deps]
 req = [

@@ -2,4 +2,4 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "libressl"
-ver = "4.1.0"
+ver = "4.1.1"

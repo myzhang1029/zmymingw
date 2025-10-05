@@ -1,6 +1,6 @@
 [package]
 name = "gpgme"
-ver = "1.24.3"
+ver = "2.0.1"
 
 [deps]
 req = [
