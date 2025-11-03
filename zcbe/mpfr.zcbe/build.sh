@@ -3,5 +3,6 @@ autoreconf -fi
 CFLAGS="-DDBL_EPSILON=__DBL_EPSILON__ -DFLT_EPSILON=__FLT_EPSILON__" ./configure --host="${ZCHOST}" --build="$("${ZCTOP}"/zcbe/config.guess)" --prefix="${ZCPREF}" --with-gmp="${ZCPREF}" --enable-shared --disable-static
 make
 make install
+"${ZCTOP}/zcbe/strip_package_config.sh" mpfr
 make distclean
 exit 0

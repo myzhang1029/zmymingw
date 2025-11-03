@@ -14,5 +14,6 @@ sed -i.zcbak "s/-std=c89//" Makefile
 rm -f Makefile.zcbak
 make
 make install
+"${ZCTOP}/zcbe/strip_package_config.sh" opusfile
 make distclean
 exit 0

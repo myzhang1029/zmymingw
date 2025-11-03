@@ -34,6 +34,7 @@ sed -i.zcbak 's/\$(WINDRES) \$(IFLAGS) --preprocessor "\$(DEPWINDRES) -E -xc-hea
 --extra-libs=-lSDL2
 make
 make install
+"${ZCTOP}/zcbe/strip_package_config.sh" libavcodec libavdevice libavfilter libavutil libswresample libswscale
 make distclean
 mv ffbuild/common.mak.zcbak ffbuild/common.mak
 exit 0

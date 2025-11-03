@@ -5,5 +5,6 @@ CFLAGS="-DXMD_H -isystem ${ZCPREF}/include" LDFLAGS=-L${ZCPREF}/lib ./configure 
 cat "${ZCTOP}/zcbe/libgd.zcbe/getline.c" >> src/config.h
 make
 make install
+"${ZCTOP}/zcbe/strip_package_config.sh" gdlib
 make distclean
 exit 0

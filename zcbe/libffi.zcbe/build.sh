@@ -4,6 +4,7 @@ patch -p1 < "${ZCTOP}/zcbe/libffi.zcbe/build.patch"
 ./configure --host="${ZCHOST}" --build="$("${ZCTOP}"/zcbe/config.guess)" --prefix="${ZCPREF}"
 make
 make install
+"${ZCTOP}/zcbe/strip_package_config.sh" libffi
 make distclean
 patch -R -p1 < "${ZCTOP}/zcbe/libffi.zcbe/build.patch"
 exit 0

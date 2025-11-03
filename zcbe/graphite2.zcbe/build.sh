@@ -7,6 +7,7 @@ ninja="$("${ZCTOP}"/zcbe/checkninja.sh)"
 cmake -DCMAKE_TOOLCHAIN_FILE="${ZCPREF}"/tmp/toolchain.cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX="${ZCPREF}" -DBUILD_SHARED_LIBS=ON -DCMAKE_CXX_FLAGS_INIT="-include cstdint" -G "${ninja}" -S . -B zcbe_build
 cmake --build zcbe_build
 cmake --install zcbe_build
+"${ZCTOP}/zcbe/strip_package_config.sh" graphite2
 rm -rf zcbe_build
 
 exit 0

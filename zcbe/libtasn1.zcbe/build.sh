@@ -9,5 +9,6 @@ trap unpatch exit
 ./configure --host="${ZCHOST}" --build="$("${ZCTOP}"/zcbe/config.guess)" --prefix="${ZCPREF}" --disable-doc
 make
 make install
+"${ZCTOP}/zcbe/strip_package_config.sh" libtasn1
 make distclean
 exit 0
