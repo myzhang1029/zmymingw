@@ -1,0 +1,10 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "rusty-penguin"
+ver = "latest"
+
+[deps] # Dependencies
+build = [
+"rust"
+]
