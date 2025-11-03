@@ -1,0 +1,24 @@
+diff --git a/src/output.c b/src/output.c
+index 4b1bb0d8..d0e15cbd 100644
+--- a/src/output.c
++++ b/src/output.c
+@@ -783,6 +783,7 @@ output_skeleton (void)
+       }
+ 
+     pid = create_pipe_bidi ("m4", m4, argv,
++                            /* dll_dirs */ NULL,
+                             /* directory */ NULL,
+                             /* null_stderr */ false,
+                             /* slave_process */ true,
+diff --git a/src/print-xml.c b/src/print-xml.c
+index 78801dbc..da1b54ce 100644
+--- a/src/print-xml.c
++++ b/src/print-xml.c
+@@ -565,6 +565,7 @@ print_html (void)
+   int status
+     = execute (argv[0],
+                argv[0], argv,
++               /* dll_dirs */ NULL,
+                /* directory */ NULL,
+                /* ignore_sigpipe */ false,
+                /* null_stdin, null_stdout, null_stderr */ true, true, true,
