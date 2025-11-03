@@ -1,6 +1,11 @@
 #!/bin/sh
 
 patch -p1 < "${ZCTOP}/zcbe/libsndfile.zcbe/build.patch"
+unpatch() {
+    patch -R -p1 < "${ZCTOP}/zcbe/libsndfile.zcbe/build.patch"
+}
+trap unpatch exit
+
 "${ZCTOP}/zcbe/fix_cmake_version.sh" CMakeLists.txt
 "${ZCTOP}"/zcbe/gen_toolchainfile.sh
 ninja="$("${ZCTOP}"/zcbe/checkninja.sh)"
@@ -9,6 +14,5 @@ cmake --build zcbe_build
 cmake --install zcbe_build
 "${ZCTOP}/zcbe/strip_package_config.sh" sndfile
 rm -rf zcbe_build
-patch -R -p1 < "${ZCTOP}/zcbe/libsndfile.zcbe/build.patch"
 
 exit 0
