@@ -9,5 +9,5 @@ build = [
 "rust"
 ]
 req = [
-"libressl"
+"nettle"
 ]

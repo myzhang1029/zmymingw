@@ -6,5 +6,8 @@ ver = "1.20.2"
 
 [deps]
 req = [
-"jpeg"
+"libwebp",
+"tiff",
+"jpeg",
+"x265",
 ]

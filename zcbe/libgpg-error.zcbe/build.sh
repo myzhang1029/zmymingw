@@ -6,6 +6,6 @@ unset PKG_CONFIG_LIBDIR
 unset PKG_CONFIG_PATH
 make
 make install
-"${ZCTOP}/zcbe/strip_package_config.sh" libgpg-error
+"${ZCTOP}/zcbe/strip_package_config.sh" gpg-error
 make distclean
 exit 0
