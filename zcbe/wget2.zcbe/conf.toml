@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "wget2"
-ver = "2.2.0"
+ver = "git"
 
 [deps]
 req = [
