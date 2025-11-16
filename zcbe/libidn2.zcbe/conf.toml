@@ -7,6 +7,7 @@ ver = "2.3.8"
 [deps]
 build = [
 "gengetopt",
+"wine",
 ]
 req = [
 "libunistring",

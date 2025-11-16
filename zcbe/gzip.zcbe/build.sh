@@ -1,7 +1,7 @@
 #!/bin/sh
 AC_VERSION="$(LC_ALL=C autoconf --version|head -n1|rev|cut -d\  -f1|rev)"
 sed -i.zcbak "s/AC_PREREQ\(.*\)/AC_PREREQ([${AC_VERSION}])/" configure.ac
-./bootstrap --gnulib-refdir="${ZCTOP}"/libraries/gnulib --no-git
+./bootstrap --gnulib-refdir="${ZCTOP}"/libraries/gnulib
 CFLAGS=-lssp ./configure --host="${ZCHOST}" --build="$("${ZCTOP}"/zcbe/config.guess)" --prefix="${ZCPREF}"
 make
 make install

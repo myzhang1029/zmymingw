@@ -1,7 +1,14 @@
 #!/bin/sh
-./bootstrap --gnulib-refdir="${ZCTOP}"/libraries/gnulib --no-git
-./configure --host="${ZCHOST}" --build="$("${ZCTOP}"/zcbe/config.guess)" --prefix="${ZCPREF}"
-make
+
+patch -p1 < "${ZCTOP}/zcbe/libidn2.zcbe/build.patch"
+unpatch() {
+    patch -R -p1 < "${ZCTOP}/zcbe/libidn2.zcbe/build.patch"
+}
+trap unpatch exit
+
+./bootstrap --gnulib-refdir="${ZCTOP}"/libraries/gnulib
+./configure --host="${ZCHOST}" --build="$("${ZCTOP}"/zcbe/config.guess)" --prefix="${ZCPREF}" --with-libunistring-prefix="${ZCPREF}" --with-libintl-prefix="${ZCPREF}" --with-libiconv-prefix="${ZCPREF}"
+make EXE_WRAPPER=wine
 make install
 "${ZCTOP}/zcbe/strip_package_config.sh" libidn2
 make distclean

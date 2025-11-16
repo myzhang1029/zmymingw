@@ -7,7 +7,7 @@ unpatch() {
 trap unpatch exit
 
 test -d "${ZCTOP}/.git" && git submodule update --init submodules/autoconf
-./bootstrap --gnulib-refdir="${ZCTOP}"/libraries/gnulib --no-git
+./bootstrap --gnulib-refdir="${ZCTOP}"/libraries/gnulib
 ./configure --host="${ZCHOST}" --build="$("${ZCTOP}"/zcbe/config.guess)" --prefix="${ZCPREF}"
 # Sometimes this does not exist
 touch doc/bison.help

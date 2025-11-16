@@ -10,7 +10,7 @@ unpatch() {
 }
 trap unpatch exit
 
-./bootstrap --gnulib-refdir="${ZCTOP}"/libraries/gnulib --no-git
+./bootstrap --gnulib-refdir="${ZCTOP}"/libraries/gnulib
 LIBS=-lbcrypt ./configure --host="${ZCHOST}" --build="$("${ZCTOP}"/zcbe/config.guess)" --prefix="${ZCPREF}" --without-doc
 make || touch man/cmp.1 man/diff.1 man/diff3.1 man/sdiff.1 && make
 make install

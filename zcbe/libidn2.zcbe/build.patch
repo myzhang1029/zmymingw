@@ -1,0 +1,21 @@
+diff --git a/lib/Makefile.am b/lib/Makefile.am
+index 85f2b41..02544dd 100644
+--- a/lib/Makefile.am
++++ b/lib/Makefile.am
+@@ -68,14 +68,14 @@ gendata$(EXEEXT): gendata.c
+ 	$(CC) $(DEFAULT_INCLUDES) $(AM_CPPFLAGS) $(CFLAGS) $< -o $@
+ data.c: $(srcdir)/gendata.c $(IDNA_TABLE)
+ 	$(MAKE) gendata$(EXEEXT)
+-	$(builddir)/gendata$(EXEEXT) < $(IDNA_TABLE) > $@.new
++	$(EXE_WRAPPER) $(builddir)/gendata$(EXEEXT) < $(IDNA_TABLE) > $@.new
+ 	mv $@.new $@
+ 
+ gentr46map$(EXEEXT): gentr46map.c
+ 	$(CC) $(DEFAULT_INCLUDES) $(AM_CPPFLAGS) $(CFLAGS) $< -o $@
+ tr46map_data.c: $(srcdir)/gentr46map.c $(TR46MAP) $(NFCQC)
+ 	$(MAKE) gentr46map$(EXEEXT)
+-	$(builddir)/gentr46map$(EXEEXT) > $@.new
++	$(EXE_WRAPPER) $(builddir)/gentr46map$(EXEEXT) > $@.new
+ 	mv $@.new $@
+ 
+ $(IDNA_TABLE):
