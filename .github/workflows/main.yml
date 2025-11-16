@@ -57,6 +57,7 @@ jobs:
           HOMEBREW_PREFIX: /home/linuxbrew/.linuxbrew
           HOMEBREW_CELLAR: /home/linuxbrew/.linuxbrew/Cellar
           HOMEBREW_REPOSITORY: /home/linuxbrew/.linuxbrew/Homebrew
+          HOMEBREW_NO_INSTALL_FROM_API: 1
         run: |
           brew install -q \
           autoconf automake libtool gettext texinfo pkg-config texi2html groff asciidoc \
