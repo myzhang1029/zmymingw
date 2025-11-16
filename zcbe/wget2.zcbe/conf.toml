@@ -8,6 +8,7 @@ ver = "2.2.0"
 req = [
 "bzip2",
 "gpgme",
+"libidn2",
 "libressl",
 "libpsl",
 "nghttp2",
