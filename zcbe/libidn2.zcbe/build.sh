@@ -8,6 +8,7 @@ trap unpatch exit
 
 ./bootstrap --gnulib-refdir="${ZCTOP}"/libraries/gnulib
 ./configure --host="${ZCHOST}" --build="$("${ZCTOP}"/zcbe/config.guess)" --prefix="${ZCPREF}" --with-libunistring-prefix="${ZCPREF}" --with-libintl-prefix="${ZCPREF}" --with-libiconv-prefix="${ZCPREF}"
+touch doc/idn2.1
 make EXE_WRAPPER=wine
 make install
 "${ZCTOP}/zcbe/strip_package_config.sh" libidn2

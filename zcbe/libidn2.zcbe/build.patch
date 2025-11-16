@@ -19,3 +19,16 @@ index 85f2b41..02544dd 100644
  	mv $@.new $@
  
  $(IDNA_TABLE):
+diff --git a/doc/Makefile.am b/doc/Makefile.am
+index 720df52..1cb8b05 100644
+--- a/doc/Makefile.am
++++ b/doc/Makefile.am
+@@ -51,7 +51,7 @@ idn2.1: idn2.h2m $(top_srcdir)/src/idn2.c $(top_srcdir)/src/idn2.ggo \
+ 		--output=$@ $(top_builddir)/src/idn2$(EXEEXT)
+ 
+ idn2-help.texi: $(top_srcdir)/src/idn2.c
+-	$(top_builddir)/src/idn2$(EXEEXT) --help | $(GREP) '^  *-' > tmp
++	$(EXE_WRAPPER) $(top_builddir)/src/idn2$(EXEEXT) --help | $(GREP) '^  *-' > tmp
+ 	mv tmp idn2-help.texi
+ 
+ MAINTAINERCLEANFILES = $(dist_man_MANS) decode.c example-tounicode.c example-toascii.c lookup.c \
