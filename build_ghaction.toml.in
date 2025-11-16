@@ -19,8 +19,9 @@ build = [
 ]
 
 [env]
+PKG_CONFIG_SYSROOT_DIR="${ZCPREF}"
 PKG_CONFIG_PATH = "${ZCPREF}/lib/pkgconfig"
 PKG_CONFIG_LIBDIR = "${ZCPREF}/lib/pkgconfig"
-AC_MINVER = "2.64"
 GNULIB_SRCDIR = "${ZCTOP}/libraries/gnulib"
+GNULIB_REFDIR = "${ZCTOP}/libraries/gnulib"
 PATH="/home/runner/ccache_bin:${PATH}"
