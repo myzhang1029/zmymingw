@@ -69,7 +69,9 @@ jobs:
 
       - name: Check out submodules
         run: |
-          while ! git submodule update --init; do
+          git submodule init
+          git submodule status | cut -c43- | cut -f1 -d\ | xargs -P16 -n1 git submodule update --checkout
+          while ! git submodule update --checkout; do
             echo "Retrying git submodule update --init"
             sleep 1
           done
@@ -93,7 +95,7 @@ jobs:
 
       - name: Strip binaries
         run: |
-          find /home/runner/work/zmymingw/zmymingw/artifact -name "*.exe" -o -name "*.dll" -exec ${ matrix.host_trip }-strip --strip-all {} \;
+          find /home/runner/work/zmymingw/zmymingw/artifact -name "*.exe" -o -name "*.dll" -exec ${{ matrix.host_trip }}-strip --strip-all {} \;
 
       - name: Package the result
         run: |
