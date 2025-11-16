@@ -288,3 +288,9 @@
 [submodule "libraries/libressl"]
 	path = libraries/libressl
 	url = https://github.com/libressl/portable.git
+[submodule "libraries/libidn2"]
+	path = libraries/libidn2
+	url = https://gitlab.com/libidn/libidn2.git
+[submodule "libraries/libunistring"]
+	path = libraries/libunistring
+	url = https://git.savannah.gnu.org/git/libunistring.git

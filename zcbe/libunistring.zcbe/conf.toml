@@ -1,10 +1,10 @@
 # Config file for a project
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
-name = "tk"
-ver = "9.0.3"
+name = "libunistring"
+ver = "1.4.1"
 
 [deps]
 req = [
-"tcl"
+#"libunistring",
 ]

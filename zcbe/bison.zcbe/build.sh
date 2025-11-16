@@ -11,8 +11,9 @@ test -d "${ZCTOP}/.git" && git submodule update --init submodules/autoconf
 ./configure --host="${ZCHOST}" --build="$("${ZCTOP}"/zcbe/config.guess)" --prefix="${ZCPREF}"
 # Sometimes this does not exist
 touch doc/bison.help
-# Doc builds are omitted
-make || true
-make install-exec-recursive
+# Prevent bison from trying to run help2man
+touch doc/bison.1
+make
+make install
 make distclean
 exit 0

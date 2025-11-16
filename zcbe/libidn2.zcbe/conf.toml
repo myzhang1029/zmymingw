@@ -1,0 +1,15 @@
+# Config file for a project
+# Placed in $SRCROOT/zcbe/conf.toml
+[package]
+name = "libidn2"
+ver = "2.3.8"
+
+[deps]
+build = [
+"gengetopt",
+]
+req = [
+"libunistring",
+"libiconv",
+"libintl",
+]
