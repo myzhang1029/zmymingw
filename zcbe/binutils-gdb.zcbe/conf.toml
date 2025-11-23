@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "binutils-gdb"
-ver = "2.45"
+ver = "2.45.1"
 
 [deps]
 req = [

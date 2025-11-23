@@ -1,0 +1,31 @@
+commit 5ef56f1d1538befef796b5062f06a6db44c4c121
+Author: John Harrison <harjohn@google.com>
+Date:   Tue Oct 14 13:48:19 2025 -0700
+
+    [lldb] Adjust MainLoop on Win32 to work with mingw (#163419)
+    
+    This adjusts the monitor tear down to only call CancelIoEx a single
+    time, which should cancel all IO operations in the monitoring thread,
+    instead of calling it in a loop.
+    
+    This removes the `m_monitor_thread.native_handle()` call that returns a
+    different type on windows/mingw compiles with pthreads enabled and
+    should fix #162801.
+
+diff --git a/lldb/source/Host/windows/MainLoopWindows.cpp b/lldb/source/Host/windows/MainLoopWindows.cpp
+index c0b10797e506..9b7df10258bc 100644
+--- a/lldb/source/Host/windows/MainLoopWindows.cpp
++++ b/lldb/source/Host/windows/MainLoopWindows.cpp
+@@ -55,11 +55,7 @@ public:
+     if (m_monitor_thread.joinable()) {
+       m_stopped = true;
+       SetEvent(m_ready);
+-      // Keep trying to cancel ReadFile() until the thread exits.
+-      do {
+-        CancelIoEx(m_handle, /*lpOverlapped=*/NULL);
+-      } while (WaitForSingleObject(m_monitor_thread.native_handle(), 1) ==
+-               WAIT_TIMEOUT);
++      CancelIoEx(m_handle, /*lpOverlapped=*/NULL);
+       m_monitor_thread.join();
+     }
+     CloseHandle(m_event);

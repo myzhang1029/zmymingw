@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "llvm"
-ver = "git"
+ver = "21.1.6"
 
 [deps]
 req = [
