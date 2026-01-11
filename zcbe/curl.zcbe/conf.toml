@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "curl"
-ver = "8.17.0"
+ver = "8.18.0"
 
 [deps]
 req = [

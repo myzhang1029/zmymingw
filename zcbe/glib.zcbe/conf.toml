@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "glib"
-ver = "2.86.0"
+ver = "2.87.1"
 
 [deps]
 req = [

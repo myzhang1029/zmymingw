@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "libarchive"
-ver = "3.8.4"
+ver = "3.8.5"
 
 [deps]
 req = [
