@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "gc"
-ver = "8.2.8"
+ver = "8.2.12"
 
 [env]
 CC = "${ZCHOST}-gcc"

@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "nettle"
-ver = "3.10.2"
+ver = "4.0"
 
 [deps]
 req = [

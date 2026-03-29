@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "autoconf"
-ver = "2.72"
+ver = "2.73"
 
 [deps] # Dependencies
 req = [

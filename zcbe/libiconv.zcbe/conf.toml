@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "libiconv"
-ver = "1.18"
+ver = "1.19"
 
 [deps]
 build = [
