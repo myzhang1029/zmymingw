@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "sed"
-ver = "4.9"
+ver = "4.10"
 
 [env]
 CC = "${ZCHOST}-gcc"

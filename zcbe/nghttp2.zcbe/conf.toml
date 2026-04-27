@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "nghttp2"
-ver = "1.68.1"
+ver = "1.69.0"
 
 [deps]
 req = [

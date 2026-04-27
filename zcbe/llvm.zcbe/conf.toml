@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "llvm"
-ver = "22.1.2"
+ver = "22.1.4"
 
 [deps]
 req = [

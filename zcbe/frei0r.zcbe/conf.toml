@@ -2,4 +2,4 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "frei0r"
-ver = "2.5.6"
+ver = "3.1.3"

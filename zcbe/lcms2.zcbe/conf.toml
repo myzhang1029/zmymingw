@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "lcms2"
-ver = "2.18"
+ver = "2.19"
 
 [env]
 CC = "${ZCHOST}-gcc"
