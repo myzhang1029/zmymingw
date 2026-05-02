@@ -5,7 +5,7 @@ unpatch() {
 }
 trap unpatch exit
 
-./bootstrap --gnulib-refdir="${ZCTOP}"/libraries/gnulib
+./bootstrap --gnulib-refdir="${ZCTOP}"/libraries/gnulib --bootstrap-sync
 ./configure --host="${ZCHOST}" --build="$("${ZCTOP}"/zcbe/config.guess)" --prefix="${ZCPREF}" --disable-doc
 make
 make install

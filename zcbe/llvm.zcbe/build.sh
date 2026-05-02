@@ -1,11 +1,5 @@
 #!/bin/sh
 
-patch -p1 < "${ZCTOP}/zcbe/llvm.zcbe/build.patch"
-unpatch() {
-    patch -R -p1 < "${ZCTOP}/zcbe/llvm.zcbe/build.patch"
-}
-trap unpatch exit
-
 "${ZCTOP}"/zcbe/gen_toolchainfile.sh
 ninja="$("${ZCTOP}"/zcbe/checkninja.sh)"
 # LLVM OpenMP also requires the win32 threading model; use gcc instead

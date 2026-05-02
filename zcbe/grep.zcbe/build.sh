@@ -1,6 +1,6 @@
 #!/bin/sh
 
-./bootstrap --gnulib-refdir="${ZCTOP}"/libraries/gnulib
+./bootstrap --gnulib-refdir="${ZCTOP}"/libraries/gnulib --bootstrap-sync
 LIBS=-lpthread ./configure --host="${ZCHOST}" --build="$("${ZCTOP}"/zcbe/config.guess)" --prefix="${ZCPREF}"
 make
 make install
