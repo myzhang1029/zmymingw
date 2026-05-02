@@ -1,7 +1,7 @@
 #!/bin/sh
 sed -i.zcbak 's,\t./fbc,\tbc,' bc/Makefile.am
 sed -i.zcbak 's/random()/rand()/' bc/execute.c
-sed -i.zcbak 's/srand(time(NULL))/srand(time(NULL))/' bc/main.c
+sed -i.zcbak 's/srandom(time(NULL))/srand(time(NULL))/' bc/main.c
 autoreconf -i
 
 CFLAGS=-std=gnu99 LDFLAGS=-lgcc ./configure --host="${ZCHOST}" --build="$("${ZCTOP}"/zcbe/config.guess)" --prefix="${ZCPREF}"

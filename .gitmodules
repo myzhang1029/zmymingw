@@ -297,3 +297,6 @@
 [submodule "libraries/brotli"]
 	path = libraries/brotli
 	url = https://github.com/google/brotli.git
+[submodule "libraries/opencv"]
+	path = libraries/opencv
+	url = https://github.com/opencv/opencv.git
