@@ -294,3 +294,6 @@
 [submodule "libraries/libunistring"]
 	path = libraries/libunistring
 	url = https://git.savannah.gnu.org/git/libunistring.git
+[submodule "libraries/brotli"]
+	path = libraries/brotli
+	url = https://github.com/google/brotli.git
