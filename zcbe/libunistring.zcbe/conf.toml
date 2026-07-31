@@ -2,9 +2,8 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "libunistring"
-ver = "1.4.1"
+ver = "1.4.2"
 
 [deps]
 req = [
-#"libunistring",
 ]

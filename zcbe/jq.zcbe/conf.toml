@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "jq"
-ver = "1.8.1"
+ver = "1.8.2"
 
 [env]
 CC = "${ZCHOST}-gcc"

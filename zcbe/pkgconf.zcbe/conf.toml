@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "pkgconf"
-ver = "2.5.1"
+ver = "3.0.4"
 
 [env]
 CC = "${ZCHOST}-gcc"

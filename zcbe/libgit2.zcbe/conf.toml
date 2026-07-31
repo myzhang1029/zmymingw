@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "libgit2"
-ver = "1.9.2"
+ver = "1.9.6"
 
 [deps]
 req = [

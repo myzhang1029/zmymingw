@@ -1,6 +1,6 @@
 [package]
 name = "libksba"
-ver = "1.6.8"
+ver = "1.8.0"
 
 [deps]
 build = [

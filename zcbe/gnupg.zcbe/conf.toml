@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "gnupg"
-ver = "2.5.19"
+ver = "2.5.21"
 
 [deps] # Dependencies
 build = [
