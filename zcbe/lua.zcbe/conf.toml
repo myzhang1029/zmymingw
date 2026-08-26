@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "lua"
-ver = "5.5.0"
+ver = "5.5.1"
 
 [deps]
 req = [

@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "frei0r"
-ver = "3.2.3"
+ver = "3.5.0"
 
 [deps]
 req = [

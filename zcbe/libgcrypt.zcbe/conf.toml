@@ -1,6 +1,6 @@
 [package]
 name = "libgcrypt"
-ver = "1.12.2"
+ver = "1.12.3"
 
 [deps]
 build = [

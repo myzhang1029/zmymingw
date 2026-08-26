@@ -2,7 +2,7 @@
 # Placed in $SRCROOT/zcbe/conf.toml
 [package]
 name = "ffmpeg"
-ver = "n8.1.2"
+ver = "n9.0.1"
 
 [deps] # Dependencies
 req = [
